@@ -6,9 +6,7 @@ import 'slick-carousel/slick/slick-theme.css';
 
 const HeroPage = () => {
   const carouselImages = [
-    'https://example.com/image1.jpg',
-    'https://example.com/image2.jpg',
-    'https://example.com/image3.jpg',
+    '/image/heropageimg/featurediteem1.png',
   ];
 
   const settings = {
