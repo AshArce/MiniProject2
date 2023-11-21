@@ -13,7 +13,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import IconButton from '@mui/material/IconButton';
 import { styled } from '@mui/system';
 import Dashboard from '../../features/adminpage/Dashboard';
-import ProductList from '../../features/adminpage/ProductsList';
+import ProductList from '../../features/adminpage/ProductList';
 
 
 const drawerWidth = 200;
