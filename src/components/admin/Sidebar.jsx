@@ -39,19 +39,19 @@ function Sidebar(props) {
       <List>
 
         <ListItem disablePadding>
-          <ListItemButton component={Link} to={'/admin/dashboard'}>
+          <ListItemButton component={Link} to={'/adminpage/dashboard'}>
             <ListItemText primary={"Dashboard"} />
           </ListItemButton>
         </ListItem>
 
         <ListItem disablePadding>
-          <ListItemButton component={Link} to={'/admin/products'}>
+          <ListItemButton component={Link} to={'/adminpage/products'}>
             <ListItemText primary={"Products"} />
           </ListItemButton>
         </ListItem>
 
         <ListItem disablePadding>
-          <ListItemButton component={Link} to={'/admin/categories'}>
+          <ListItemButton component={Link} to={'/adminpage/categories'}>
             <ListItemText primary={"Categories"} />
           </ListItemButton>
         </ListItem>

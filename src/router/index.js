@@ -1,6 +1,7 @@
-import Dashboard from "../features/adminpage/Dashboard"
+import Dashboard from "../features/adminpage/Dashboard";
 import HeroPage from "../components/customer/HeroPage";
 import ProductList from "../features/adminpage/ProductsList";
+import Categories from "../components/admin/Categories";
 
 export const routes = [
   {
@@ -8,11 +9,15 @@ export const routes = [
     element: <HeroPage />,
   },
   {
-    path: "/features/adminpage/dashboard",
+    path: "/adminpage/dashboard",
     element: <Dashboard />,
   },
   {
-    path: "/features/adminpage/productlist",
+    path: "/adminpage/productlist",
     element: <ProductList />,
+  },
+  {
+    path: "/adminpage/Categories",
+    element: <Categories />,
   },
 ];
