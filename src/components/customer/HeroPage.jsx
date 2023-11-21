@@ -1,45 +1,65 @@
-// HeroPage.jsx
 import React from 'react';
-import { Typography, Button, Container } from '@mui/material';
-import { styled } from '@mui/system';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
+import Container from '@mui/material/Container';
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
+import Slider from 'react-slick';
 
-const HeroContainer = styled(Container)(({ theme }) => ({
-  position: 'relative',
-  height: '100vh',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  color: theme.palette.common.white,
-  backgroundSize: 'cover',
-  backgroundPosition: 'center',
-}));
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
-const Overlay = styled('div')({
-  position: 'absolute',
-  top: 0,
-  left: 0,
-  width: '100%',
-  height: '100%',
-  backgroundColor: 'rgba(0, 0, 0, 0.5)', // Adjust the overlay color and opacity as needed
-});
-
-const HeroContent = styled('div')(({ theme }) => ({
-  zIndex: 1,
-  textAlign: 'center',
-}));
+const theme = createTheme();
 
 const HeroPage = () => {
+  const carouselSettings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 5000,
+  };
+
+  const carouselImages = [
+    'images/heropage/heroimg.png',
+    'images/heropage/featured_item1.png',
+    'images/heropage/featured_item2.png',
+  ];
+
   return (
-    <HeroContainer style={{ backgroundImage: 'url("/heropageimg/featured_item.png")' }}>
-      <Overlay />
-      <HeroContent>
-        <Typography variant="h2">Welcome to Our Website</Typography>
-        <Typography variant="subtitle1">Discover amazing products and deals</Typography>
-        <Button variant="contained" color="primary" size="large">
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <Slider {...carouselSettings}>
+        {carouselImages.map((image, index) => (
+          <div key={index}>
+            <img src={image} alt={`carousel-${index}`} style={{ width: '100%', height: '100%' }} />
+          </div>
+        ))}
+      </Slider>
+      <Container
+        component="section"
+        sx={{
+          position: 'absolute',
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
+          textAlign: 'center',
+          color: 'white',
+        }}
+      >
+        <Typography variant="h2" component="div" gutterBottom>
+          Your E-Commerce Store
+        </Typography>
+        <Typography variant="h5" component="div" gutterBottom>
+          Discover amazing products and deals
+        </Typography>
+        <Button variant="contained" color="primary">
           Shop Now
         </Button>
-      </HeroContent>
-    </HeroContainer>
+      </Container>
+    </ThemeProvider>
   );
 };
 
