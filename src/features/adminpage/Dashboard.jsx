@@ -1,13 +1,9 @@
-
-// Dashboard.js
 import React, { useState, useEffect } from 'react';
-
-
+import Sidebar from '../../components/admin/Sidebar';
 import { Box, styled } from '@mui/system'; // Updated import statement
 import { Paper, Typography } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import Sidebar from '../../components/admin/Sidebar';
 
 
 
@@ -26,159 +22,145 @@ const Content = styled('div')`
 `;
 
 const Dashboard = () => {
+
   const [userStats, setUserStats] = useState({
     totalUsers: 1000,
     sellers: 750,
     newSubs: 50,
   });
 
+  const [topProducts, setTopProducts] = useState([]);
+  const [bestSellers, setBestSellers] = useState([]);
+
   useEffect(() => {
-    const fetchData = async () => {
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-      setUserStats({
-        totalUsers: 1000,
-        sellers: 750,
-        newSubs: 50,
-      });
+    // Fetch top products data (replace this with your actual data fetching logic)
+    const fetchTopProducts = async () => {
+      try {
+        // Example: Fetch top products from an API
+        const response = await fetch('/api/top-products');
+        const data = await response.json();
+        setTopProducts(data);
+      } catch (error) {
+        console.error('Error fetching top products:', error);
+      }
     };
 
-    fetchData();
+    fetchTopProducts();
   }, []);
 
-  const isSmallscreen = useMediaQuery('(max-width: 320px)');
+  useEffect(() => {
+  // Fetch best sellers data (replace this with your actual data fetching logic)
+  const fetchBestSellers = async () => {
+    try {
+      // Example: Fetch best sellers from an API
+      const response = await fetch('/api/best-sellers');
+      const data = await response.json();
+      setBestSellers(data);
+    } catch (error) {
+      console.error('Error fetching best sellers:', error);
+    }
+  };
 
+  fetchBestSellers();
+}, []);
 
-  const titleFontSize = isSmallscreen ? '2rem' : '1.5rem';
+  const titleFontSize = '1.5rem'; // Adjust as needed
 
 
   return (
     <Container>
       <Sidebar />
       <Content>
-        <Box className="dashboard"
-          sx={{
-            margin: 0,
-          }}>
-          <h1>Dashboard</h1>
-          <div className="user-stats">
+        <Grid container spacing={2}>
+          <Grid item xs={12} md={8}>
+            <div className="userStats">
+                <Typography variant="h4">Dashboard</Typography>
+            </div>
+          </Grid>
+          <Grid item xs={12} md={8}>
+            <Paper elevation={0}
+                          sx={{
+                            p: 2,
+                            height: 250,
+                            background: 'linear-gradient(to right, #FF69B4, #ADD8E6)',
+                          }}>
+              <Typography variant="body1" sx={{ fontSize: titleFontSize }}>Top Products</Typography>
+              <ul>
+            {/* Render the list of top products */}
+            {topProducts.map((product) => (
+                <li key={product.id}>{product.name}</li>
+            ))}
+            </ul>
+            </Paper>
+          </Grid>
 
-            <Grid container
-              spacing={2}
-              style={{ padding: '0', margin: '0' }}
+          <Grid item xs={12} md={4}>
+            <Paper elevation={0}
+                          sx={{
+                            p: 2,
+                            height: 250,
+                            background: 'linear-gradient(to right, #FF69B4, #ADD8E6)',
+                          }}>
+              <Typography variant="body1" sx={{ fontSize: titleFontSize }}>Best Sellers</Typography>
+              <ol>
+                {/* Render the list of best sellers */}
+                {bestSellers.map((seller) => (
+                  <li key={seller.id}>{seller.name}</li>
+                ))}
+             </ol>
+            </Paper>
+          </Grid>
+
+          <Grid item xs={12} md={4}>
+            <Paper
+              elevation={0}
+              sx={{
+                p: 2,
+                height: 250,
+                background: 'linear-gradient(to right, #FF69B4, #ADD8E6)',
+              }}
             >
+              <Typography variant="body1" sx={{ fontSize: titleFontSize }}>
+            Total Users
+              </Typography>
+              <Typography variant="h4">{userStats.totalUsers}</Typography>
+            </Paper>
+          </Grid>
 
-              <Grid item xs={12} md={12}>
-                <Box sx={{
-                  display: 'flex',
-                  flexDirection: isSmallscreen ? 'column' : 'row',
-                  alignItems: 'center',
-                  gap: 2,
-                  flexWrap: 'wrap',
-                }}>
+          <Grid item xs={12} md={4}>
+            <Paper
+              elevation={0}
+              sx={{
+                p: 2,
+                height: 250,
+                background: 'linear-gradient(to right, #FF69B4, #ADD8E6)',
+              }}
+            >
+              <Typography variant="body1" sx={{ fontSize: titleFontSize }}>
+            Sellers
+              </Typography>
+              <Typography variant="h4">{userStats.sellers}</Typography>
+            </Paper>
+          </Grid>
 
-                  {/* box1 */}
-                  <div className="stat-card">
-                    <Paper elevation={0}
-                      sx={{
-                        p: 2,
-                        width: 230,
-                        height: 100,
-                        background: 'linear-gradient(to right, #FF69B4, #ADD8E6)',
-                      }}>
-                      <Typography variant="body1" sx={{ fontSize: titleFontSize }}>Total Users</Typography>
-                      <Typography variant="h4">{userStats.totalUsers}</Typography>
-                    </Paper>
-                  </div>
+          <Grid item xs={12} md={4}>
+            <Paper
+              elevation={0}
+              sx={{
+                p: 2,
+                height: 250,
+                background: 'linear-gradient(to right, #FF69B4, #ADD8E6)',
+              }}
+            >
+              <Typography variant="body1" sx={{ fontSize: titleFontSize }}>
+            New Subscribers (Today)
+              </Typography>
+              <Typography variant="h4">{userStats.newSubs}</Typography>
+            </Paper>
+          </Grid>
 
-                  {/* box2 */}
-                  <div className="stat-card">
-                    <Paper elevation={0}
-                      sx={{
-                        p: 2,
-                        width: 230,
-                        height: 100,
-                        background: 'linear-gradient(to right, #FF69B4, #ADD8E6)',
-                      }}>
-                      <Typography variant="h4" sx={{ fontSize: titleFontSize }}>Seller</Typography>
-                      <Typography variant="body1">{userStats.totalUsers}</Typography>
-                    </Paper>
-                  </div>
-
-                  {/* box3 */}
-                  <div className="stat-card">
-                    <Paper elevation={0}
-                      sx={{
-                        p: 2,
-                        width: 230,
-                        height: 100,
-                        background: 'linear-gradient(to right, #FF69B4, #ADD8E6)',
-                      }}>
-                      <Typography variant="h4" sx={{ fontSize: titleFontSize }}>New Subscribers (Today)</Typography>
-                      <Typography variant="body1">{userStats.totalUsers}</Typography>
-                    </Paper>
-                  </div>
-                </Box>
-              </Grid>
-
-              <Grid item xs={12} md={12}>
-                <Box sx={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: 2,
-                  flexDirection: isSmallscreen ? 'column' : 'row',
-                  flexWrap: 'wrap',
-                }}>
-                  <div className="top-products">
-                    <Paper elevation={0}
-                      sx={{
-                        p: 2,
-                        width: 510,
-                        height: 100,
-                        background: 'linear-gradient(to right, #FF69B4, #ADD8E6)',
-                      }}>
-                      <Typography variant="h6">Top Products</Typography>
-                      {/* Add your list of recent orders here */}
-                    </Paper>
-                  </div>
-
-                  <div className="best-seller">
-                    <Paper elevation={0}
-                      sx={{
-                        p: 2,
-                        width: 230,
-                        height: 100,
-                        background: 'linear-gradient(to right, #FF69B4, #ADD8E6)',
-                      }}>
-                      <Typography variant="h6">Best Sellers</Typography>
-                      {/* Add your list of recent orders here */}
-                    </Paper>
-                  </div>
-                </Box>
-              </Grid>
-
-              <Grid Grid item xs={12} md={12}>
-                <Box sx={{
-                  display: 'flex',
-                  alignItems: 'center',
-                }}>
-
-                  <div className="revenue">
-                    <Paper elevation={0}
-                      sx={{
-                        p: 2,
-                        width: 230,
-                        height: 100,
-                        background: 'linear-gradient(to right, #FF69B4, #ADD8E6)',
-                      }}>
-                      <Typography variant="h6">Revenue</Typography>
-                      {/* Add your list of recent orders here */}
-                    </Paper>
-                  </div>
-                </Box>
-              </Grid>
-            </Grid>
-          </div>
-        </Box>
+          
+        </Grid>
       </Content>
     </Container>
   );
