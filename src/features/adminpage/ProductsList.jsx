@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import AdminNavigations from './AdminNavigations';
+import Sidebar from '../../components/admin/Sidebar';
 import { styled } from '@mui/system';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
@@ -15,9 +15,7 @@ import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { Button } from '@mui/material';
 import { Link } from 'react-router-dom';
-import EditProduct from '../../components/admin/EditProduct';
-import AddProductModal from '../../components/admin/AddProductModal';
-import Categories from './Categories';
+
 
 const Container = styled('div')`
   display: flex;
@@ -73,7 +71,7 @@ const ProductList = () => {
 
   return (
     <Container>
-      <AdminNavigations />
+      <Sidebar />
       <Content>
         <Grid container spacing={2}>
           <Grid item xs={12} md={8}>

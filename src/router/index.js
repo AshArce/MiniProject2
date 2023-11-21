@@ -1,4 +1,4 @@
-import Dashboard from "../components/admin/Dashboard";
+import Dashboard from "../features/adminpage/Dashboard"
 import HeroPage from "../components/customer/HeroPage";
 import ProductList from "../features/adminpage/ProductsList";
 
@@ -8,11 +8,11 @@ export const routes = [
     element: <HeroPage />,
   },
   {
-    path: "/admin/dashboard",
+    path: "/features/adminpage/dashboard",
     element: <Dashboard />,
   },
   {
-    path: "/admin/productlist",
+    path: "/features/adminpage/productlist",
     element: <ProductList />,
   },
 ];
