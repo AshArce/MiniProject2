@@ -1,40 +1,45 @@
+// HeroPage.jsx
 import React from 'react';
 import { Typography, Button, Container } from '@mui/material';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+import { styled } from '@mui/system';
+
+const HeroContainer = styled(Container)(({ theme }) => ({
+  position: 'relative',
+  height: '100vh',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  color: theme.palette.common.white,
+  backgroundSize: 'cover',
+  backgroundPosition: 'center',
+}));
+
+const Overlay = styled('div')({
+  position: 'absolute',
+  top: 0,
+  left: 0,
+  width: '100%',
+  height: '100%',
+  backgroundColor: 'rgba(0, 0, 0, 0.5)', // Adjust the overlay color and opacity as needed
+});
+
+const HeroContent = styled('div')(({ theme }) => ({
+  zIndex: 1,
+  textAlign: 'center',
+}));
 
 const HeroPage = () => {
-  const carouselImages = [
-    '/image/heropageimg/featurediteem1.png',
-  ];
-
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-  };
-
   return (
-    <Container>
-      <Slider {...settings}>
-        {carouselImages.map((image, index) => (
-          <div key={index} style={{ backgroundImage: `url(${image})`, height: '500px', backgroundSize: 'cover' }}>
-            {/* You can customize the content inside each slide if needed */}
-            <div style={{ textAlign: 'center', paddingTop: '200px', color: 'white' }}>
-              <Typography variant="h2">Welcome to Our E-Commerce Store</Typography>
-              <Typography variant="subtitle1">Discover amazing products and deals</Typography>
-              <Button variant="contained" color="primary" size="large">
-                Shop Now
-              </Button>
-            </div>
-          </div>
-        ))}
-      </Slider>
-    </Container>
+    <HeroContainer style={{ backgroundImage: 'url("/heropageimg/featured_item.png")' }}>
+      <Overlay />
+      <HeroContent>
+        <Typography variant="h2">Welcome to Our Website</Typography>
+        <Typography variant="subtitle1">Discover amazing products and deals</Typography>
+        <Button variant="contained" color="primary" size="large">
+          Shop Now
+        </Button>
+      </HeroContent>
+    </HeroContainer>
   );
 };
 
