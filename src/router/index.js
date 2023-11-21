@@ -1,7 +1,8 @@
 import Dashboard from "../features/adminpage/Dashboard";
 import HeroPage from "../components/customer/HeroPage";
-import ProductList from "../features/adminpage/ProductsList";
+
 import Categories from "../components/admin/Categories";
+import ProductList from "../features/adminpage/ProductList";
 
 export const routes = [
   {
