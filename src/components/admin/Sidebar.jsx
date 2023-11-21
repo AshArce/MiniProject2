@@ -12,8 +12,7 @@ import { AppBar, Typography, useMediaQuery, useTheme } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import IconButton from '@mui/material/IconButton';
 import { styled } from '@mui/system';
-import Dashboard from '../../features/adminpage/Dashboard';
-import ProductList from '../../features/adminpage/ProductList';
+
 
 
 const drawerWidth = 200;
@@ -39,19 +38,19 @@ function Sidebar(props) {
       <List>
 
         <ListItem disablePadding>
-          <ListItemButton component={Link} to={'/admin/dashboard'}>
+          <ListItemButton component={Link} to={'/adminpage/dashboard'}>
             <ListItemText primary={"Dashboard"} />
           </ListItemButton>
         </ListItem>
 
         <ListItem disablePadding>
-          <ListItemButton component={Link} to={'/admin/products'}>
+          <ListItemButton component={Link} to={'/adminpage/productlist'}>
             <ListItemText primary={"Products"} />
           </ListItemButton>
         </ListItem>
 
         <ListItem disablePadding>
-          <ListItemButton component={Link} to={'/admin/categories'}>
+          <ListItemButton component={Link} to={'/adminpage/categories'}>
             <ListItemText primary={"Categories"} />
           </ListItemButton>
         </ListItem>
