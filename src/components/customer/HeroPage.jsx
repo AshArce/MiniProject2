@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import Container from '@mui/material/Container';
@@ -12,6 +12,8 @@ import 'slick-carousel/slick/slick-theme.css';
 const theme = createTheme();
 
 const HeroPage = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
   const carouselSettings = {
     dots: true,
     infinite: true,
@@ -20,45 +22,57 @@ const HeroPage = () => {
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 5000,
+    // beforeChange: (current, next) => setCurrentSlide(next),
   };
 
-  const carouselImages = [
-    'images/heropage/heroimg.png',
-    'images/heropage/featured_item1.png',
-    'images/heropage/featured_item2.png',
+  const carouselData = [
+    {
+      image: 'images/heropage/ft_item2.png',
+      title: 'Product 1',
+      description: 'Discover the amazing features of Product 1.',
+    },
+    {
+      image: 'images/heropage/ft_item1.png',
+      title: 'Product 2',
+      description: 'Explore the benefits of Product 2 for your needs.',
+    },
   ];
 
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Slider {...carouselSettings}>
-        {carouselImages.map((image, index) => (
+        {carouselData.map((item, index) => (
           <div key={index}>
-            <img src={image} alt={`carousel-${index}`} style={{ width: '100%', height: '100%' }} />
+            <img src={item.image} alt={`carousel-${index}`} style={{ width: '100%', height: '100%' }} />
+            {index === currentSlide && (
+              <Container
+                component="section"
+                sx={{
+                  position: 'absolute',
+                  top: '50%',
+                  left: '50%',
+                  right: '50%',
+                  transform: 'translate(-50%, -50%)',
+                  textAlign: 'left',
+                  width: '60%',
+                  padding: '20px',
+                }}
+              >
+                <Typography variant="h2" component="div" gutterBottom sx={{ color: 'black', marginBottom: '10px' }}>
+                  {item.title}
+                </Typography>
+                <Typography variant="h5" component="div" sx={{ color: 'black', marginBottom: '20px' }}>
+                  {item.description}
+                </Typography>
+                <Button variant="contained" color="primary">
+                  Shop Now
+                </Button>
+              </Container>
+            )}
           </div>
         ))}
       </Slider>
-      <Container
-        component="section"
-        sx={{
-          position: 'absolute',
-          top: '50%',
-          left: '50%',
-          transform: 'translate(-50%, -50%)',
-          textAlign: 'center',
-          color: 'white',
-        }}
-      >
-        <Typography variant="h2" component="div" gutterBottom>
-          Your E-Commerce Store
-        </Typography>
-        <Typography variant="h5" component="div" gutterBottom>
-          Discover amazing products and deals
-        </Typography>
-        <Button variant="contained" color="primary">
-          Shop Now
-        </Button>
-      </Container>
     </ThemeProvider>
   );
 };
