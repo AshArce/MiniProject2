@@ -5,6 +5,7 @@ import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import Slider from 'react-slick';
+import Header from './Header';
 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -27,19 +28,25 @@ const HeroPage = () => {
 
   const carouselData = [
     {
-      image: 'images/heropage/ft_item2.png',
+      image: 'images/heropage/ft_item1.png',
       title: 'Product 1',
       description: 'Discover the amazing features of Product 1.',
     },
     {
-      image: 'images/heropage/ft_item1.png',
+      image: 'images/heropage/ft_item2.png',
       title: 'Product 2',
+      description: 'Explore the benefits of Product 2 for your needs.',
+    },
+    {
+      image: 'images/heropage/ft_item3.png',
+      title: 'Product 3',
       description: 'Explore the benefits of Product 2 for your needs.',
     },
   ];
 
   return (
     <ThemeProvider theme={theme}>
+      <Header/>
       <CssBaseline />
       <Slider {...carouselSettings}>
         {carouselData.map((item, index) => (
@@ -51,8 +58,7 @@ const HeroPage = () => {
                 sx={{
                   position: 'absolute',
                   top: '50%',
-                  left: '50%',
-                  right: '50%',
+                  left: '70%',
                   transform: 'translate(-50%, -50%)',
                   textAlign: 'left',
                   width: '60%',
