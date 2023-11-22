@@ -42,7 +42,6 @@ const ProductList = () => {
     { id: 5, name: 'Product E', category: 'Crop top', status: 'In-stock', date: '2023-11-09', image: 'product-image-2.jpg' },
   ]);
 
-
   const handleSearchChange = (event) => {
     setSearchQuery(event.target.value);
   };
