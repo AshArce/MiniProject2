@@ -17,30 +17,18 @@ import { Edit as EditIcon, Delete as DeleteIcon } from '@mui/icons-material';
 import Sidebar from '../../components/admin/Sidebar';
 import AddProductModal from '../../components/admin/AddProductModal';
 import { Link } from 'react-router-dom';
+import { sampleProducts } from './productdata';
+
 
 const Container = styled('div')`
   display: flex;
-`;
-
-const Content = styled('div')`
-  flex: 1;
-  margin-top: 60px;
-  margin-right: 60px;
 `;
 
 const ProductList = () => {
 
   const [searchQuery, setSearchQuery] = useState('');
   const [newProductName, setNewProductName] = useState('');
-  const [products, setProducts] = useState([
-
-    // Sample product data
-    { id: 1, name: 'Product A', category: 'Sneakers', status: 'In-stock', date: '2023-11-08', image: 'product-image-1.jpg' },
-    { id: 2, name: 'Product B', category: 'T-Shirt', status: 'In-stock', date: '2023-11-09', image: 'product-image-2.jpg' },
-    { id: 3, name: 'Product C', category: 'Shorts', status: 'Out of Stock', date: '2023-11-09', image: 'product-image-2.jpg' },
-    { id: 4, name: 'Product D', category: 'Sandals', status: 'Out of stock', date: '2023-11-09', image: 'product-image-2.jpg' },
-    { id: 5, name: 'Product E', category: 'Crop top', status: 'In-stock', date: '2023-11-09', image: 'product-image-2.jpg' },
-  ]);
+  const [products, setProducts] = useState(sampleProducts);
 
 
   const handleSearchChange = (event) => {
