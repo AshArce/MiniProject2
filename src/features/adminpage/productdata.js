@@ -48,6 +48,6 @@ export const sampleProducts = [
     date: "2023-11-09",
     image: "product-image-2.jpg",
     price: "205",
-    cart: false,
+    cart: true,
   },
 ];

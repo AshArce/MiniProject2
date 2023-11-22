@@ -1,21 +1,17 @@
+// Inside ShoppingCart.jsx
 import React from 'react';
-import { sampleProducts } from '../../features/adminpage/productdata';
 
-const ShopingCart = ({ cart, removeFromCart }) => {
-  // Check if cart is defined and is an array
-  if (!cart || !Array.isArray(cart)) {
-    return <p>Invalid cart data</p>;
-  }
+const ShoppingCart = ({ cart, removeFromCart, updateQuantity }) => {
 
-  // Filter products based on the cart property
   const productsInCart = cart.filter((product) => product.cart);
-
-  // Calculate the total price of products in the cart
-  const totalPrice = productsInCart.reduce((total, product) => total + parseFloat(product.price), 0);
+  const totalPrice = cart.reduce((total, product) => total + parseFloat(product.price) * product.quantity, 0);
 
   const handleRemoveFromCart = (productId) => {
-    // Call the removeFromCart function passed as a prop
     removeFromCart(productId);
+  };
+
+  const handleUpdateQuantity = (productId, newQuantity) => {
+    updateQuantity(productId, newQuantity);
   };
 
   return (
@@ -25,7 +21,15 @@ const ShopingCart = ({ cart, removeFromCart }) => {
         <div key={product.id}>
           <p>{product.name}</p>
           <p>Price: ₱{product.price}</p>
+          <p>Quantity: {product.quantity}</p>
           <button onClick={() => handleRemoveFromCart(product.id)}>Remove</button>
+          <input
+            type="number"
+            value={product.quantity}
+            min={1}
+            max={10}
+            onChange={(e) => handleUpdateQuantity(product.id, parseInt(e.target.value, 10))}
+          />
         </div>
       ))}
       <p>Total Price: ₱{totalPrice.toFixed(2)}</p>
@@ -33,4 +37,4 @@ const ShopingCart = ({ cart, removeFromCart }) => {
   );
 };
 
-export default ShopingCart;
+export default ShoppingCart;

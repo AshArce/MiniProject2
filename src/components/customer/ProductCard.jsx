@@ -1,24 +1,31 @@
+// Inside ProductCard.jsx
 import React from 'react';
 import { Button, Grid, Paper, Typography } from '@mui/material';
-import { sampleProducts } from '../../features/adminpage/productdata';
 
 
-function ProductCard() {
+function ProductCard({ products, addToCart }) {
+  const handleAddToCart = (product) => {
+    addToCart({ ...product, quantity: 1 });
+  };
+
   return (
     <Grid container spacing={2} p={1}>
-      {sampleProducts.map((product) => (
-        <Grid item key={product.id}
-          xs={6} //mobile 
-          sm={4} //tablet
-          md={3} // laptop
+      {products.map((product) => (
+        <Grid
+          item
+          key={product.id}
+          xs={6}
+          sm={4}
+          md={3}
           p={2}
         >
-          <Paper sx={{
-            padding: 2,
-            textAlign: 'center',
-            aspectRatio: '1/1'
-          }}>
-
+          <Paper
+            sx={{
+              padding: 2,
+              textAlign: 'center',
+              aspectRatio: '1/1'
+            }}
+          >
             <img
               src={product.image}
               alt={product.name}
@@ -29,7 +36,6 @@ function ProductCard() {
                 filter: product.status === 'Out of Stock' ? 'grayscale(100%)' : 'none',
               }}
             />
-
             <Typography variant="subtitle1"
               mt={1}>
               {product.name}
@@ -48,9 +54,12 @@ function ProductCard() {
             </Typography>
 
             {product.status !== 'Out of Stock' && (
-              <Button variant="contained">Add to Cart</Button>
-            )}
 
+              <Button variant="contained" onClick={() => handleAddToCart(product)}>
+                Add to Cart
+              </Button>
+
+            )}
           </Paper>
         </Grid>
       ))}

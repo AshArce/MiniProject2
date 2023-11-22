@@ -1,3 +1,4 @@
+// Import necessary dependencies
 import React, { useState } from 'react';
 import {
   Grid,
@@ -17,18 +18,21 @@ import { Edit as EditIcon, Delete as DeleteIcon } from '@mui/icons-material';
 import Sidebar from '../../components/admin/Sidebar';
 import AddProductModal from '../../components/admin/AddProductModal';
 import { Link } from 'react-router-dom';
+
+// Importing sampleProducts from productdata file
 import { sampleProducts } from './productdata';
 
-
+// Styling Container component
 const Container = styled('div')`
   display: flex;
 `;
-
 const ProductList = () => {
 
   const [searchQuery, setSearchQuery] = useState('');
-  const [newProductName, setNewProductName] = useState('');
   const [products, setProducts] = useState(sampleProducts);
+
+  const [newProductName, setNewProductName] = useState('');
+
 
 
   const handleSearchChange = (event) => {

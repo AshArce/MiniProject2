@@ -1,13 +1,15 @@
+// Import necessary dependencies
 import Dashboard from "../features/adminpage/Dashboard";
 import HeroPage from "../components/customer/HeroPage";
-
 import Categories from "../components/admin/Categories";
 import ProductList from "../features/adminpage/ProductList";
 
-import ShoppingCart from "../components/customer/ShopingCart";
 import AllProducts from "../features/customerpage/AllProducts";
-import ShopingCart from "../components/customer/ShopingCart";
+import ShoppingCart from "../components/customer/ShopingCart";
 
+// ... (rest of the code)
+
+// Define routes array
 export const routes = [
   {
     path: "/",
@@ -19,11 +21,7 @@ export const routes = [
   },
   {
     path: "/cart",
-    element: <ShopingCart />,
-  },
-  {
-    path: "/cart",
-    element: <ShoppingCart />,
+    element: <ShoppingCart />, // Corrected the import
   },
   {
     path: "/adminpage/dashboard",
@@ -38,3 +36,5 @@ export const routes = [
     element: <Categories />,
   },
 ];
+
+// ... (rest of the code)
