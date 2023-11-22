@@ -1,6 +1,8 @@
 // Import necessary dependencies
 import Dashboard from "../features/adminpage/Dashboard";
-import HeroPage from "../components/customer/HeroPage";
+
+import HeroPage from "../features/customerpage/HeroPage";
+
 import Categories from "../components/admin/Categories";
 import ProductList from "../features/adminpage/ProductList";
 
