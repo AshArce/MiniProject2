@@ -10,38 +10,25 @@ function ProductSettings() {
 
   const [selectedCategoryFirst, setSelectedCategoryFirst] = useState(firstProductCategory);
   const [selectedCategorySecond, setSelectedCategorySecond] = useState(secondProductCategory);
-  const [selectedProductId, setSelectedProductId] = useState(sampleProducts.length > 0 ? sampleProducts[0].id : null);
 
   const handleCategoryFirstChange = (event) => {
     const selectedCategory = event.target.value;
     setSelectedCategoryFirst(selectedCategory);
 
-    // Find the first product that matches the selected category
-    const selectedProduct = sampleProducts.find(product => product.category[0] === selectedCategory);
+    // Filter sampleProducts based on the selected category
+    const filteredProducts = sampleProducts.filter(product => product.category[0] === selectedCategory);
 
-    if (selectedProduct) {
-      // Set the selected product ID
-      setSelectedProductId(selectedProduct.id);
+    // Get the second index values from the filtered products
+    const secondCategories = filteredProducts.map(product => product.category[1]);
 
-      // Set the default value for the second category based on the selected product
-      setSelectedCategorySecond(selectedProduct.category[1]);
-    } else {
-      setSelectedProductId(null);
-      setSelectedCategorySecond('');
-    }
-
-    // Additional actions based on the selected category can be performed here if needed
+    // Set the second dropdown to the unique second index values
+    setSelectedCategorySecond([...new Set(secondCategories)][0] || '');
   };
 
   const handleCategorySecondChange = (event) => {
     setSelectedCategorySecond(event.target.value);
     // Additional actions based on the selected category can be performed here if needed
   };
-
-  // Filter subcategories based on the selected product ID
-  const subCategories = selectedProductId
-    ? sampleProducts.find(product => product.id === selectedProductId)?.category.slice(2) || []
-    : [];
 
   return (
     <div>
@@ -67,11 +54,13 @@ function ProductSettings() {
           value={selectedCategorySecond}
           onChange={handleCategorySecondChange}
         >
-          {subCategories.map(subCategory => (
-            <MenuItem key={subCategory} value={subCategory}>
-              {subCategory}
-            </MenuItem>
-          ))}
+          {sampleProducts
+            .filter(product => product.category[0] === selectedCategoryFirst)
+            .map(product => (
+              <MenuItem key={product.id} value={product.category[1]}>
+                {product.category[1]}
+              </MenuItem>
+            ))}
         </Select>
       </div>
       {/* Additional settings content can be added here */}
