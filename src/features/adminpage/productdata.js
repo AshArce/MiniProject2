@@ -3,7 +3,7 @@ export const sampleProducts = [
   {
     id: 1,
     name: "Kuya Wil 4s",
-    category: "Sneakers",
+    category: ["Shoes", "Sneakers"],
     status: "In-stock",
     date: "2023-11-08",
     image: "images/shoes/product-image-1.jpg",
@@ -13,7 +13,7 @@ export const sampleProducts = [
   {
     id: 2,
     name: "Vic Sotto Box Logo",
-    category: "T-Shirt",
+    category: ["Tops", "T-Shirt"],
     status: "In-stock",
     date: "2023-11-09",
     image: "product-image-2.jpg",
@@ -23,7 +23,7 @@ export const sampleProducts = [
   {
     id: 3,
     name: "Very Very short Shorts",
-    category: "Shorts",
+    category: ["Bottoms", "Shorts"],
     status: "Out of Stock",
     date: "2023-11-09",
     image: "product-image-2.jpg",
@@ -33,7 +33,7 @@ export const sampleProducts = [
   {
     id: 4,
     name: "Vintage Look Sandals",
-    category: "Sandals",
+    category: ["Shoes", "Sandals"],
     status: "Out of Stock",
     date: "2023-11-09",
     image: "product-image-2.jpg",
@@ -43,7 +43,7 @@ export const sampleProducts = [
   {
     id: 5,
     name: "Pink Crop Top",
-    category: "Crop top",
+    category: ["Tops", "Crop Top"],
     status: "In-stock",
     date: "2023-11-09",
     image: "product-image-2.jpg",
