@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import ProductCard from '../../components/customer/ProductCard';
 import ShoppingCart from '../../components/customer/ShopingCart';
 import { sampleProducts } from '../adminpage/productdata';
+import ProductsNav from '../../components/customer/ProductsNav';
 
 
 
@@ -25,21 +26,15 @@ function AllProducts() {
     }
   };
 
-  const removeFromCart = (productId) => {
-    setCart((prevCart) => prevCart.filter((item) => item.id !== productId));
-  };
 
-  const updateQuantity = (productId, newQuantity) => {
-    const updatedCart = cart.map((item) =>
-      item.id === productId ? { ...item, quantity: newQuantity } : item
-    );
-    setCart(updatedCart);
-  };
+
+
 
   return (
     <>
+      <ProductsNav />
       <ProductCard products={sampleProducts} addToCart={addToCart} />
-      <ShoppingCart cart={cart} removeFromCart={removeFromCart} updateQuantity={updateQuantity} />
+
     </>
   );
 }
