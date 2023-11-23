@@ -8,6 +8,7 @@ import { IconButton, Tab, Tabs, TextField, useMediaQuery } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import SideNav from './SideNav';
+import StorefrontIcon from '@mui/icons-material/Storefront';
 
 const theme = createTheme();
 
@@ -40,9 +41,14 @@ const Header = () => {
 
             {!isMobile && (
             <>
-              <Typography style={{fontSize: '20px', fontWeight:'bold'}}>
-                kartcheck
-              </Typography>
+              <div style={{ display: 'flex', alignItems: 'center' }}>
+                  {/* Shop icon */}
+                  <StorefrontIcon style={{ fontSize: '24px', marginRight: '10px', color: '#5dacbd' }} />
+                  {/* Logo name */}
+                  <Typography style={{ fontSize: '20px', fontWeight: 'bold' }}>
+                    kartcheck
+                  </Typography>
+                </div>
 
               <Tabs 
               sx={{marginLeft: '0%',}} 
