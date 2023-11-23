@@ -15,13 +15,13 @@ const Carousel = () => {
 
   const slidesData = [
     {
-      image: '/images/item1.png',
+      image: '/images/f_item1.png',
     },
     {
-      image: '/images/item2.png',
+      image: '/images/f_item2.png',
     },
     {
-      image: '/images/item3.png',
+      image: '/images/f_item3.png',
     },
     // Add more entries for additional slides
   ];
@@ -33,11 +33,12 @@ const Carousel = () => {
   };
 
   return (
-    <div style={{ maxWidth: '1200px', margin: 'auto' }}>
+    <div style={{ maxWidth: '1440px', margin: 'auto' }}>
       <Slider {...settings}>
         {slidesData.map((slide, index) => (
           <div key={index} style={{ position: 'relative' }}>
-            <img src={slide.image} alt={`Slide ${index + 1}`} style={{ width: '100%' }} />
+            <img src={slide.image} alt={`Slide ${index + 1}`} 
+            style={{ width: '100%' ,}} />
             <div style={{ 
               position : 'absolute', 
               top: '50%',

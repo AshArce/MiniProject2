@@ -4,6 +4,7 @@ import { createTheme, ThemeProvider } from '@mui/material';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { routes } from './router/index';
 import TopPicks from './components/customer/TopPicks';
+import '/src/App.css';
 
 const theme = createTheme();
 const router = createBrowserRouter(routes)

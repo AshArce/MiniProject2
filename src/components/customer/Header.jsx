@@ -29,7 +29,7 @@ const Header = () => {
         <CssBaseline />
         <AppBar position="static" elevation={0}
         sx={{ backgroundColor: 'transparent', 
-              color: 'seagreen',
+              color: '#24527a',
               mt: '20px',
               mb: '20px'
            }}>
@@ -40,8 +40,8 @@ const Header = () => {
 
             {!isMobile && (
             <>
-              <Typography >
-                KARTCHECK
+              <Typography style={{fontSize: '20px', fontWeight:'bold'}}>
+                kartcheck
               </Typography>
 
               <Tabs 
@@ -49,11 +49,10 @@ const Header = () => {
               textColor='inherit' 
               value={value} 
               onChange={(e, value) => setValue(value)}>
-                <Tab label ="Home"/>
-                <Tab label ="Products"/>
-                <Tab label ="Categories"/>
-                <Tab label ="Account"/>
-                <Tab label ="Cart"/>
+                <Tab style={{fontWeight:'bold'}} label ="Home"/>
+                <Tab style={{fontWeight:'bold'}} label ="Products"/>
+                <Tab style={{fontWeight:'bold'}} label ="Account"/>
+                <Tab style={{fontWeight:'bold'}} label ="Cart"/>
               </Tabs>
             </>
             )}
@@ -72,10 +71,10 @@ const Header = () => {
               '& .MuiOutlinedInput-root': {
                 borderRadius: '20px',
                 '& fieldset': {
-                  borderColor: 'seagreen',
+                  borderColor: '#5dacbd',
                 },
                 '&:hover fieldset': {
-                  borderColor: 'seagreen',
+                  borderColor: '#5dacbd',
                 },
               },
             }}
@@ -83,7 +82,7 @@ const Header = () => {
               endAdornment: (
                 <IconButton
                   aria-label="search"
-                  sx={{ color: 'seagreen' }}
+                  sx={{ color: '#5dacbd' }}
                 >
                   <SearchIcon />
                 </IconButton>

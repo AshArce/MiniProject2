@@ -4,8 +4,7 @@ import Carousel from '../../components/customer/Carousel';
 import TopPicks from '../../components/customer/TopPicks';
 import TopSales from '../../components/customer/TopSales';
 import SubscribeFlag from '../../components/customer/SubscribeFlag';
-
-import svgBackground from '/src/greenbg.svg';
+import Footer from '../../components/customer/Footer';
 
 const HeroPage = () => {
 
@@ -27,33 +26,20 @@ const HeroPage = () => {
     5: 100,
   });
 
-  const heroPageStyle = {
-    position: 'relative',
-    minHeight: '100vh',
-    overflow: 'hidden',
-  };
-
-  const backgroundStyle = {
-    position: 'absolute',
-    top: '20%',
-    left: 0,
-    right: 0,
-    bottom: 0,
-    zIndex: -1, 
-    backgroundImage: `url(${svgBackground})`,
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-  };
+  const spaceStyle = {
+    margin: '20px 0',
+  }
 
 
   return (
-    <div style={heroPageStyle}>
+    <div >
       <Header />
-      <div style={backgroundStyle}></div>
       <Carousel />
       <TopPicks products={products} salesData={salesData} />
       <TopSales products={products} salesData={salesData}/>
       <SubscribeFlag/>
+      <div style={spaceStyle} /> {/* Add a container with space */}
+      <Footer /> {/* Add the Footer component here */}
     </div>
   );
 };
