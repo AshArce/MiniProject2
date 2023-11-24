@@ -2,7 +2,6 @@
 import React from 'react';
 import { Button, Grid, Paper, Typography } from '@mui/material';
 
-
 function ProductCard({ products, addToCart }) {
   const handleAddToCart = (product) => {
     addToCart({ ...product, quantity: 1 });
@@ -29,49 +28,19 @@ function ProductCard({ products, addToCart }) {
                 filter: product.status === 'Out of Stock' ? 'grayscale(100%)' : 'none',
               }}
             />
-            <Typography variant="subtitle1"
-              mt={1}
-              sx={{
-                fontFamily: 'poppins',
-                fontSize: '15px',
-                fontWeight: 'bold'
-              }}>
+
+            <Typography variant="subtitle1" mt={1}>
               {product.name}
             </Typography>
-
-            {product.status === 'In-stock' ? (
-              <Typography variant="body2" style={{ display: 'none' }}>
-                {product.status}
-              </Typography>
-            ) : (
-              <Typography variant="body2">{product.status}</Typography>
-            )}
-
-            <Typography variant="body2"
-            sx={{
-              fontFamily: 'poppins',
-              fontSize: '16px',
-              fontWeight: 'bold',
-              color: '#24527a',
-              mb: '3%'
-            }}>
-              ₱{product.price}
+            <Typography variant="body2">
+              {product.status === 'Out of Stock' ? 'Out of Stock' : `₱${product.price}`}
             </Typography>
-
             {product.status !== 'Out of Stock' && (
 
-              <Button variant="contained" onClick={() => handleAddToCart(product)}
-              sx={{
-                fontSize: '12px',
-                fontFamily: 'poppins' ,
-                backgroundColor: '#5dacbd',
-                textTransform: 'capitalize',
-                borderRadius: '6px',
-                padding: '2px, 2%'
-              }}>
+              <Button variant="contained" onClick={() => handleAddToCart(product)}>
+
                 Add to Cart
               </Button>
-
             )}
           </Paper>
         </Grid>

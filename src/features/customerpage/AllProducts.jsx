@@ -1,13 +1,11 @@
+
 // Inside AllProducts.jsx
+
 import React, { useState, useEffect } from 'react';
 import ProductCard from '../../components/customer/ProductCard';
 import ShoppingCart from '../../components/customer/ShopingCart';
 import { sampleProducts } from '../adminpage/productdata';
 import ProductsNav from '../../components/customer/ProductsNav';
-import Header from '../../components/customer/Header';
-import ProductSettings from '../../components/customer/ProductSettings';
-
-
 
 function AllProducts() {
   const [selectedParentCategory, setSelectedParentCategory] = useState('');
@@ -35,6 +33,9 @@ function AllProducts() {
 
 
   const [cart, setCart] = useState([]);
+  const [filteredProducts, setFilteredProducts] = useState(sampleProducts);
+  const [selectedCategoryFirst, setSelectedCategoryFirst] = useState('All Items');
+  const [selectedCategorySecond, setSelectedCategorySecond] = useState('');
 
   const addToCart = (product) => {
     const existingProduct = cart.find((item) => item.id === product.id);
@@ -51,18 +52,30 @@ function AllProducts() {
     }
   };
 
+  useEffect(() => {
+    // Update filtered products when category selections change
+    if (selectedCategoryFirst === 'All Items') {
+      setFilteredProducts(sampleProducts);
+    } else {
+      const filtered = sampleProducts.filter(product => product.category[0] === selectedCategoryFirst);
+      if (selectedCategorySecond) {
+        setFilteredProducts(filtered.filter(product => product.category[1] === selectedCategorySecond));
+      } else {
+        setFilteredProducts(filtered);
+      }
+    }
+  }, [selectedCategoryFirst, selectedCategorySecond]);
 
   return (
     <>
-      <Header />
-      <ProductsNav />
-      <ProductCard products={filteredProducts.length > 0 ? filteredProducts : sampleProducts} />
-      <ProductSettings
-        selectedParentCategory={selectedParentCategory}
-        selectedSubCategory={selectedSubCategory}
-        onParentCategoryChange={setSelectedParentCategory}
-        onSubCategoryChange={setSelectedSubCategory}
+      <ProductsNav
+        selectedCategoryFirst={selectedCategoryFirst}
+        selectedCategorySecond={selectedCategorySecond}
+        setSelectedCategoryFirst={setSelectedCategoryFirst}
+        setSelectedCategorySecond={setSelectedCategorySecond}
       />
+      <ProductCard products={filteredProducts} addToCart={addToCart} />
+
     </>
   );
 }
