@@ -1,4 +1,3 @@
-
 // Inside AllProducts.jsx
 
 import React, { useState, useEffect } from 'react';
@@ -30,10 +29,7 @@ function AllProducts() {
     setSelectedSubCategory(event.target.value);
   };
 
-
-
   const [cart, setCart] = useState([]);
-  const [filteredProducts, setFilteredProducts] = useState(sampleProducts);
   const [selectedCategoryFirst, setSelectedCategoryFirst] = useState('All Items');
   const [selectedCategorySecond, setSelectedCategorySecond] = useState('');
 
@@ -75,7 +71,6 @@ function AllProducts() {
         setSelectedCategorySecond={setSelectedCategorySecond}
       />
       <ProductCard products={filteredProducts} addToCart={addToCart} />
-
     </>
   );
 }
