@@ -38,10 +38,10 @@ const Header = () => {
         navigate('/products');
         break;
       case 2:
-        navigate('/account');
+        navigate('/Cart');
         break;
       case 3:
-        navigate('/cart');
+        navigate('/login');
         break;
       default:
         break;
@@ -50,68 +50,68 @@ const Header = () => {
 
   return (
     <>
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <AppBar position="static" elevation={0} sx={{ backgroundColor: 'transparent', color: '#24527a', mt: '20px', mb: '20px' }}>
-          <Toolbar sx={{ display: 'flex', justifyContent: 'space-around' }}>
-            {isMobile && <SideNav open={openDrawer} onClose={handleDrawerClose} />}
 
-            {!isMobile && (
-              <>
-                <div style={{ display: 'flex', alignItems: 'center' }}>
-                  {/* Shop icon */}
-                  <StorefrontIcon style={{ fontSize: '24px', marginRight: '10px', color: '#5dacbd' }} />
-                  {/* Logo name */}
-                  <Typography style={{ fontSize: '20px', fontWeight: 'bold' }}>kartcheck</Typography>
-                </div>
+      <CssBaseline />
+      <AppBar position="static" elevation={0} sx={{ backgroundColor: 'transparent', color: '#24527a', mt: '20px', mb: '20px' }}>
+        <Toolbar sx={{ display: 'flex', justifyContent: 'space-around' }}>
+          {isMobile && <SideNav open={openDrawer} onClose={handleDrawerClose} />}
 
-                <Tabs
-                  sx={{ marginLeft: '0%' }}
-                  textColor="inherit"
-                  value={value}
-                  onChange={handleTabChange}
-                >
-                  <Tab style={{ fontWeight: 'bold' }} label="Home" />
-                  <Tab style={{ fontWeight: 'bold' }} label="Products" />
-                  <Tab style={{ fontWeight: 'bold' }} label="Account" />
-                  <Tab style={{ fontWeight: 'bold' }} label="Cart" />
-                </Tabs>
-              </>
-            )}
+          {!isMobile && (
+            <>
+              <div style={{ display: 'flex', alignItems: 'center' }}>
+                {/* Shop icon */}
+                <StorefrontIcon style={{ fontSize: '24px', marginRight: '10px', color: '#5dacbd' }} />
+                {/* Logo name */}
+                <Typography style={{ fontSize: '20px', fontWeight: 'bold' }}>kartcheck</Typography>
+              </div>
 
-            <TextField
-              id="search"
-              label="Search"
-              variant="outlined"
-              size="small"
-              sx={{
-                marginLeft: '16px',
-                width: '100%',
-                minWidth: '150px',
-                '@media (min-width: 900px)': {
-                  width: '150px',
+              <Tabs
+                sx={{ marginLeft: '0%' }}
+                textColor="inherit"
+                value={value}
+                onChange={handleTabChange}
+              >
+                <Tab style={{ fontWeight: 'bold' }} label="Home" />
+                <Tab style={{ fontWeight: 'bold' }} label="Products" />
+                <Tab style={{ fontWeight: 'bold' }} label="Cart" />
+                <Tab style={{ fontWeight: 'bold' }} label="Account" />
+              </Tabs>
+            </>
+          )}
+
+          <TextField
+            id="search"
+            label="Search"
+            variant="outlined"
+            size="small"
+            sx={{
+              marginLeft: '16px',
+              width: '100%',
+              minWidth: '150px',
+              '@media (min-width: 900px)': {
+                width: '150px',
+              },
+              '& .MuiOutlinedInput-root': {
+                borderRadius: '20px',
+                '& fieldset': {
+                  borderColor: '#5dacbd',
                 },
-                '& .MuiOutlinedInput-root': {
-                  borderRadius: '20px',
-                  '& fieldset': {
-                    borderColor: '#5dacbd',
-                  },
-                  '&:hover fieldset': {
-                    borderColor: '#5dacbd',
-                  },
+                '&:hover fieldset': {
+                  borderColor: '#5dacbd',
                 },
-              }}
-              InputProps={{
-                endAdornment: (
-                  <IconButton aria-label="search" sx={{ color: '#5dacbd' }}>
-                    <SearchIcon />
-                  </IconButton>
-                ),
-              }}
-            />
-          </Toolbar>
-        </AppBar>
-      </ThemeProvider>
+              },
+            }}
+            InputProps={{
+              endAdornment: (
+                <IconButton aria-label="search" sx={{ color: '#5dacbd' }}>
+                  <SearchIcon />
+                </IconButton>
+              ),
+            }}
+          />
+        </Toolbar>
+      </AppBar>
+
     </>
   );
 };

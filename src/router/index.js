@@ -5,7 +5,9 @@ import Categories from "../components/admin/Categories";
 import ProductList from "../features/adminpage/ProductList";
 import EditProduct from "../components/admin/EditProduct";
 import AllProducts from "../features/customerpage/AllProducts";
-import ShoppingCart from "../components/customer/ShopingCart";
+
+import Login from "../components/customer/Login";
+import ShopingCart from "../components/customer/ShopingCart";
 
 // ... (rest of the code)
 
@@ -21,7 +23,11 @@ export const routes = [
   },
   {
     path: "/cart",
-    element: <ShoppingCart />, // Corrected the import
+    element: <ShopingCart />, // Corrected the import
+  },
+  {
+    path: "/login",
+    element: <Login />, // Corrected the import
   },
   {
     path: "/adminpage/dashboard",

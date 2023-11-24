@@ -5,26 +5,26 @@
 
   {
     id: 1,
-    name: "Kuya Wil 4s",
+    name: "Nike Blazer Mids",
     category: ["Shoes", "Sneakers"],
     status: "In-stock",
     stocks: "145",
     date: "2023-11-08",
-    image: "images/shoes/product-image-1.jpg",
-    price: "(formatCurrency(1200.00))",
-    salesData: "50", 
+    image: "images/product-image-1.jpg",
+    price: "1200.00",
+    salesData: "50",
     cart: true,
   },
   {
     id: 2,
-    name: "Vic Sotto Box Logo",
+    name: "Supreme Box Logo",
     category: ["Tops", "T-Shirt"],
     status: "In-stock",
     stocks: "14",
     date: "2023-01-09",
     image: "images/img/prod1.jpg",
     price: "2900.00",
-    salesData: "35", 
+    salesData: "35",
 
     cart: true,
   },
@@ -37,7 +37,7 @@
     date: "2023-05-12",
     image: "images/img/prod1.jpg",
     price: "650.00",
-    salesData: "50", 
+    salesData: "50",
     cart: true,
   },
   {
@@ -49,7 +49,7 @@
     date: "2023-01-14",
     image: "images/img/prod1.jpg",
     price: "999.25",
-    salesData: "78", 
+    salesData: "78",
     cart: false,
   },
   {
@@ -61,7 +61,7 @@
     date: "2023-02-06",
     image: "images/img/prod1.jpg",
     price: "205.36",
-    salesData: "10", 
+    salesData: "10",
     cart: true,
   },
   {
@@ -73,7 +73,7 @@
     date: "2023-11-15",
     image: "images/img/prod1.jpg",
     price: "205.36",
-    salesData: "20", 
+    salesData: "20",
     cart: true,
   },
   {
@@ -85,7 +85,7 @@
     date: "2023-07-24",
     image: "images/img/prod1.jpg",
     price: "205.36",
-    salesData: "90", 
+    salesData: "90",
     cart: true,
   },
   {
@@ -97,7 +97,7 @@
     date: "2023-11-27",
     image: "images/img/prod1.jpg",
     price: "205.36",
-    salesData: "110", 
+    salesData: "110",
     cart: true,
   },
   {
@@ -109,7 +109,7 @@
     date: "2023-08-09",
     image: "images/img/prod1.jpg",
     price: "205.36",
-    salesData: "60", 
+    salesData: "60",
     cart: true,
   },
   {
@@ -121,7 +121,7 @@
     date: "2023-04-24",
     image: "images/img/prod1.jpg",
     price: "205.36",
-    salesData: "80", 
+    salesData: "80",
     cart: true,
   },
   {
@@ -129,11 +129,12 @@
     name: "Polo Shirt",
     category: ["Tops", "T-Shirt"],
     status: "In-stock",
+
     stocks: "109",
     date: "2023-12-25",
     image: "images/img/prod1.jpg",
     price: "205.36",
-    salesData: "5", 
+    salesData: "5",
     cart: true,
   },
   {
@@ -145,10 +146,9 @@
     date: "2023-09-21",
     image: "images/img/prod1.jpg",
     price: "205.36",
-    salesData: "150", 
+    salesData: "150",
     cart: true,
   },
-
 ];
 
 
