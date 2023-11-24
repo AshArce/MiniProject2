@@ -26,6 +26,13 @@ function AddProductModal({ open, onClose, onAddProduct }) {
       <DialogTitle>Add New Product</DialogTitle>
       <DialogContent>
         <TextField
+          label="Image URL"
+          variant="outlined"
+          fullWidth
+          value={newProductImage}
+          onChange={(e) => setNewProductImage(e.target.value)}
+        />
+        <TextField
           label="Product Name"
           variant="outlined"
           fullWidth

@@ -8,10 +8,16 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import Toolbar from '@mui/material/Toolbar';
 import { Link } from 'react-router-dom';
-import { AppBar, Typography, useMediaQuery, useTheme } from '@mui/material';
+import { AppBar, Avatar, ListItemIcon, Typography, useMediaQuery, useTheme } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import IconButton from '@mui/material/IconButton';
-import { styled } from '@mui/system';
+import { styled } from '@mui/system'; 
+import StorefrontIcon from '@mui/icons-material/Storefront';
+import DashboardIcon from '@mui/icons-material/Dashboard';
+import StoreIcon from '@mui/icons-material/Store';
+import CategoryIcon from '@mui/icons-material/Category';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 
 
 
@@ -33,31 +39,63 @@ function Sidebar(props) {
 
   const drawer = (
     <div>
-      <Toolbar />
+      <Toolbar sx={{ backgroundColor: '#24527a', fontSize:'16px' }}>
+      <StorefrontIcon sx={{ fontSize: 32, mr: 2, color: 'white' }} />
+    </Toolbar>
       <Divider />
-      <List>
+      <List sx={{fontFamily:'poppins', color:'white', fontSize:'16px'}}>
 
         <ListItem disablePadding>
           <ListItemButton component={Link} to={'/adminpage/dashboard'}>
+            <ListItemIcon>
+              <DashboardIcon sx={{ color: 'white' }} />
+            </ListItemIcon>
             <ListItemText primary={"Dashboard"} />
           </ListItemButton>
         </ListItem>
 
         <ListItem disablePadding>
           <ListItemButton component={Link} to={'/adminpage/productlist'}>
+          <ListItemIcon>
+            <StoreIcon sx={{ color: 'white' }} />
+          </ListItemIcon>
             <ListItemText primary={"Products"} />
           </ListItemButton>
         </ListItem>
 
         <ListItem disablePadding>
           <ListItemButton component={Link} to={'/adminpage/categories'}>
+          <ListItemIcon>
+            <CategoryIcon sx={{ color: 'white' }} />
+          </ListItemIcon>
             <ListItemText primary={"Categories"} />
           </ListItemButton>
         </ListItem>
 
+        <ListItem disablePadding>
+          <ListItemButton component={Link} to={'/adminpage/categories'}>
+          <ListItemIcon>
+            <AccountCircleIcon sx={{ color: 'white' }} />
+          </ListItemIcon>
+            <ListItemText primary={"Account"} />
+          </ListItemButton>
+        </ListItem>
+      </List>
+      <Divider />
+      
+
+    <List sx={{ fontFamily: 'poppins', color: 'white', marginTop: '340px' }}>
+        <ListItem disablePadding>
+          <ListItemButton component={Link} to={'/'}>
+          <ListItemIcon>
+            <ExitToAppIcon sx={{ color: 'white' }} />
+          </ListItemIcon>
+            <ListItemText primary={"Logout"} />
+          </ListItemButton>
+        </ListItem>
       </List>
 
-      <Divider />
+      
     </div>
   );
 
@@ -95,7 +133,7 @@ function Sidebar(props) {
       <Box
         component="nav"
         sx={{
-          width: { xs: '100%', sm: drawerWidth - 80 },
+          width: { xs: '100%', sm: drawerWidth - 60 },
           flexShrink: { sm: 0 }
         }}
         aria-label="mailbox folders"
@@ -112,7 +150,16 @@ function Sidebar(props) {
             display: { xs: 'block', sm: 'none' },
             '& .MuiDrawer-paper': {
               boxSizing: 'border-box',
-              width: drawerWidth
+              width: drawerWidth,
+              backgroundColor: '#24527a',
+              // Add the following styles to ensure the color remains the same
+              color: 'white',
+              '& .MuiListItemIcon-root': {
+                color: 'white', // Adjust icon color if needed
+              },
+              '& .MuiTypography-root': {
+                color: 'white', // Adjust text color if needed
+              },
             },
           }}
         >
@@ -125,7 +172,7 @@ function Sidebar(props) {
             '& .MuiDrawer-paper': {
               boxSizing: 'border-box',
               width: drawerWidth,
-              backgroundColor: '#44C9F2'
+              backgroundColor: '#24527a'
             },
 
           }}

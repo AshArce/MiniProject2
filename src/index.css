@@ -63,3 +63,7 @@ label[for="category-select-second"] {
 #category-select-second {
   margin-left: 8px; /* Adjust the spacing between label and select field */
 }
+
+.drawerWidth {
+  width: 250px; /* Adjust the width as needed */
+}

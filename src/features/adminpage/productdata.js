@@ -1,14 +1,17 @@
 // productsData.js
 
-export const sampleProducts = [
+
+ const sampleProducts = [
+
   {
     id: 1,
     name: "Kuya Wil 4s",
     category: ["Shoes", "Sneakers"],
     status: "In-stock",
+    stocks: "145",
     date: "2023-11-08",
     image: "images/shoes/product-image-1.jpg",
-    price: "1200.00",
+    price: "(formatCurrency(1200.00))",
     salesData: "50", 
     cart: true,
   },
@@ -17,8 +20,9 @@ export const sampleProducts = [
     name: "Vic Sotto Box Logo",
     category: ["Tops", "T-Shirt"],
     status: "In-stock",
-    date: "2023-11-09",
-    image: "images/shoes/product-image-1.jpg",
+    stocks: "14",
+    date: "2023-01-09",
+    image: "images/img/prod1.jpg",
     price: "2900.00",
     salesData: "35", 
 
@@ -29,8 +33,9 @@ export const sampleProducts = [
     name: "Ribbed Top",
     category: ["Tops", "Crop Top"],
     status: "Out of Stock",
-    date: "2023-11-09",
-    image: "images/shoes/product-image-1.jpg",
+    stocks: "0",
+    date: "2023-05-12",
+    image: "images/img/prod1.jpg",
     price: "650.00",
     salesData: "50", 
     cart: true,
@@ -40,8 +45,9 @@ export const sampleProducts = [
     name: "Vintage Look Sandals",
     category: ["Shoes", "Sandals"],
     status: "Out of Stock",
-    date: "2023-11-09",
-    image: "images/shoes/product-image-1.jpg",
+    stocks: "0",
+    date: "2023-01-14",
+    image: "images/img/prod1.jpg",
     price: "999.25",
     salesData: "78", 
     cart: false,
@@ -51,8 +57,9 @@ export const sampleProducts = [
     name: "Pink Crop Top",
     category: ["Tops", "Crop Top"],
     status: "In-stock",
-    date: "2023-11-09",
-    image: "images/shoes/product-image-1.jpg",
+    stocks: "15",
+    date: "2023-02-06",
+    image: "images/img/prod1.jpg",
     price: "205.36",
     salesData: "10", 
     cart: true,
@@ -62,8 +69,9 @@ export const sampleProducts = [
     name: "Nike Air Max1",
     category: ["Shoes", "Sneakers"],
     status: "In-stock",
-    date: "2023-11-09",
-    image: "images/shoes/product-image-1.jpg",
+    stocks: "5",
+    date: "2023-11-15",
+    image: "images/img/prod1.jpg",
     price: "205.36",
     salesData: "20", 
     cart: true,
@@ -73,8 +81,9 @@ export const sampleProducts = [
     name: "Round Neck Shirt",
     category: ["Tops", "T-Shirt"],
     status: "In-stock",
-    date: "2023-11-09",
-    image: "images/shoes/product-image-1.jpg",
+    stocks: "1",
+    date: "2023-07-24",
+    image: "images/img/prod1.jpg",
     price: "205.36",
     salesData: "90", 
     cart: true,
@@ -83,9 +92,10 @@ export const sampleProducts = [
     id: 8,
     name: "Flare Pants",
     category: ["Bottoms", "Pants"],
-    status: "In-stock",
-    date: "2023-11-09",
-    image: "images/shoes/product-image-1.jpg",
+    status: "Out of Stock",
+    stocks: "0",
+    date: "2023-11-27",
+    image: "images/img/prod1.jpg",
     price: "205.36",
     salesData: "110", 
     cart: true,
@@ -95,8 +105,9 @@ export const sampleProducts = [
     name: "Flare Jeans",
     category: ["Bottoms", "Pants"],
     status: "In-stock",
-    date: "2023-11-09",
-    image: "images/shoes/product-image-1.jpg",
+    stocks: "105",
+    date: "2023-08-09",
+    image: "images/img/prod1.jpg",
     price: "205.36",
     salesData: "60", 
     cart: true,
@@ -106,8 +117,9 @@ export const sampleProducts = [
     name: "Cargo Shorts",
     category: ["Bottoms", "Shorts"],
     status: "In-stock",
-    date: "2023-11-09",
-    image: "images/shoes/product-image-1.jpg",
+    stocks: "11",
+    date: "2023-04-24",
+    image: "images/img/prod1.jpg",
     price: "205.36",
     salesData: "80", 
     cart: true,
@@ -117,8 +129,9 @@ export const sampleProducts = [
     name: "Polo Shirt",
     category: ["Tops", "T-Shirt"],
     status: "In-stock",
-    date: "2023-11-09",
-    image: "images/shoes/product-image-1.jpg",
+    stocks: "109",
+    date: "2023-12-25",
+    image: "images/img/prod1.jpg",
     price: "205.36",
     salesData: "5", 
     cart: true,
@@ -127,12 +140,76 @@ export const sampleProducts = [
     id: 12,
     name: "Brown Boots",
     category: ["Shoes", "Boots"],
-    status: "In-stock",
-    date: "2023-11-09",
-    image: "images/shoes/product-image-1.jpg",
+    status: "Out of Stock",
+    stocks: "0",
+    date: "2023-09-21",
+    image: "images/img/prod1.jpg",
     price: "205.36",
     salesData: "150", 
     cart: true,
   },
 
 ];
+
+
+const formatCurrency = (amount) => {
+  return new Intl.NumberFormat('en-PH', {
+    style: 'currency',
+    currency: 'PHP',
+  }).format(amount);
+};
+
+sampleProducts.forEach(product => {
+  // Convert price and salesData to numbers with additional checks
+  product.price = parseFloat(product.price) || 0;
+  product.salesData = parseFloat(product.salesData) || 0;
+
+  // Calculate totalSales
+  product.totalSales = product.price * product.salesData || 0;
+});
+
+// Log the totalSales for each product
+sampleProducts.forEach(product => {
+  console.log(`Total sales for product ${product.id}: ${product.totalSales}`);
+});
+
+const calculateOverallTotalSales = (products) => {
+  return products.reduce((acc, product) => {
+    return acc + product.totalSales;
+  }, 0);
+};
+
+const overallTotalSales = calculateOverallTotalSales(sampleProducts); // Corrected line
+console.log(`Overall Total Sales: ${overallTotalSales}`);
+//------------------REVENUE------------------//
+
+
+//------------------ORDERS-------------------//
+const productOrders = (product) => {
+  const salesData = parseFloat(product.salesData) || 0;
+  return salesData;
+};
+
+const calculateOverallOrders = (products) => {
+  return products.reduce((acc, product) => {
+    return acc + productOrders(product);
+  }, 0);
+};
+
+const overallOrders = calculateOverallOrders(sampleProducts);
+console.log(`Overall Total Orders: ${overallOrders}`);
+//------------------ORDERS-------------------//
+
+
+//------------------SOLD-------------------//
+const soldProducts = (products) => {
+  return products.reduce((acc, product) => {
+    return acc + productOrders(product);
+  }, 0);
+};
+
+const overallSoldProducts = soldProducts(sampleProducts);
+console.log(`Products Sold: ${overallSoldProducts}`);
+//------------------SOLD-------------------//
+
+export { sampleProducts, calculateOverallTotalSales, calculateOverallOrders, soldProducts, };
