@@ -11,17 +11,28 @@ function ProductSettings({
   setSelectedCategorySecond,
 }) {
   const [categories, setCategories] = useState([]);
+  const [subCategories, setSubCategories] = useState([]);
 
   useEffect(() => {
-    // Extract unique categories from sampleProducts
-    const uniqueCategories = ['All Items', ...new Set(sampleProducts.map(product => product.category[0]))];
+    // Get unique first categories
+    const uniqueCategories = [...new Set(sampleProducts.map(product => product.category[0]))];
     setCategories(uniqueCategories);
   }, []);
+
+  useEffect(() => {
+    // Update subcategories when the first category changes
+    if (selectedCategoryFirst !== '') {
+      const filteredProducts = sampleProducts.filter(product => product.category[0] === selectedCategoryFirst);
+      const uniqueSubCategories = [...new Set(filteredProducts.map(product => product.category[1]))];
+      setSubCategories(uniqueSubCategories);
+      // Clear the second category selection to prevent duplication
+      setSelectedCategorySecond('');
+    }
+  }, [selectedCategoryFirst, setSelectedCategorySecond]);
 
   const handleCategoryFirstChange = (event) => {
     const selectedCategory = event.target.value;
     setSelectedCategoryFirst(selectedCategory);
-    setSelectedCategorySecond('');
   };
 
   const handleCategorySecondChange = (event) => {
@@ -30,6 +41,7 @@ function ProductSettings({
 
   return (
     <div>
+      <h2>Product Settings</h2>
       <div>
         <label htmlFor="category-select-first">Category:</label>
         <Select
@@ -37,6 +49,7 @@ function ProductSettings({
           value={selectedCategoryFirst}
           onChange={handleCategoryFirstChange}
         >
+          <MenuItem value="">All Items</MenuItem>
           {categories.map(category => (
             <MenuItem key={category} value={category}>
               {category}
@@ -44,7 +57,7 @@ function ProductSettings({
           ))}
         </Select>
       </div>
-      {selectedCategoryFirst !== 'All Items' && (
+      {selectedCategoryFirst !== '' && (
         <div>
           <label htmlFor="category-select-second">SubCategory:</label>
           <Select
@@ -52,17 +65,15 @@ function ProductSettings({
             value={selectedCategorySecond}
             onChange={handleCategorySecondChange}
           >
-            {sampleProducts
-              .filter(product => product.category[0] === selectedCategoryFirst)
-              .map(product => (
-                <MenuItem key={product.id} value={product.category[1]}>
-                  {product.category[1]}
-                </MenuItem>
-              ))}
+            <MenuItem value="">All Items</MenuItem>
+            {subCategories.map(subCategory => (
+              <MenuItem key={subCategory} value={subCategory}>
+                {subCategory}
+              </MenuItem>
+            ))}
           </Select>
         </div>
       )}
-      {/* Additional settings content can be added here */}
     </div>
   );
 }
