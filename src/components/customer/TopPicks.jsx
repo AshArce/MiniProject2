@@ -3,10 +3,11 @@ import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import { textAlign } from '@mui/system';
+import { sampleProducts } from '../../features/adminpage/productdata';
 
 
 const TopPicks = ({ products, salesData }) => {
-  const sortedProducts = products ? [...products].sort((a, b) => salesData[b.id] - salesData[a.id]) : [];
+  const sortedProducts = sampleProducts ? [...sampleProducts].sort((a, b) => b.sales - a.sales) : [];
 
   const topFourProducts = sortedProducts.slice(0, 4);
 
@@ -21,10 +22,12 @@ const TopPicks = ({ products, salesData }) => {
                 <Paper
                   elevation={3}
                   style={{
+                    fontFamily:'poppins',
                     textAlign: 'center',
                     padding: '10px',
                     boxSizing: 'border-box',
-                    borderRadius: '10px'
+                    borderRadius: '10px',
+                    fontSize: '16px'
                   }}
                 >
                   <img src={product.image} alt={product.name} 
@@ -35,23 +38,24 @@ const TopPicks = ({ products, salesData }) => {
 
                   <Typography variant="h5" component="div" gutterBottom
                   style={{
+                    fontFamily:'poppins',
                     textAlign: 'left',
-                    fontFamily: 'Poppins',
                     fontWeight: 'bold',
-                    fontSize: '20px',
-                    marginBottom: 0
+                    fontSize: '16px',
                   }}>
                     {product.name}
                   </Typography>
+
                   <Typography variant="body1" component="div"
                   style={{
+                    fontFamily:'poppins',
                     textAlign: 'left',
-                    fontFamily: 'Poppins',
                     fontWeight: 'bold',
-                    fontSize: '30px'
+                    fontSize: '18px'
                   }}>
-                    Sales: {salesData[product.id]}
+                    ₱ {product.price}
                   </Typography>
+
                 </Paper>
               </Grid>
             ))}
@@ -75,22 +79,27 @@ const TopPicks = ({ products, salesData }) => {
               color: '#5dacbd',
               fontFamily: 'Poppins',
               }}>
-            <Typography variant="h5" gutterBottom style={{fontWeight: 'bold', paddingBottom: '10%'}}>
+            <Typography variant="h5" gutterBottom 
+            style={{fontFamily: 'poppins',fontWeight: 'bold', paddingBottom: '10%'}}>
             Popular Item
             </Typography>
+
             <Typography variant="h1" gutterBottom 
             style={{
+              fontFamily: 'poppins',
               fontWeight: 'bolder',
               fontSize: '65px',
               paddingBottom: '10%'
               }}>
             Hot Trending On This Week.
             </Typography>
-            <Typography variant="body1" style={{paddingBottom: '10%'}}>
+            <Typography variant="body1" style={{fontFamily:'poppins', paddingBottom: '10%'}}>
             Various kinds of products that are trending the trend will be reset every week. Don't miss out on the best of items every week.
             </Typography>
 
             <button style={{
+              fontFamily:'poppins',
+              fontSize: '14px',
               padding: '10px',
               marginTop: '10px',
               backgroundColor: 'rgba(0, 0, 0, 0)', // Transparent sea green color

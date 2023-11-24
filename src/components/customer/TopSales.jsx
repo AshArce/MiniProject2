@@ -11,7 +11,7 @@ const TopSales = ({ products, salesData }) => {
 
   return (
     <div style={{ padding: '3% 10% 5%' }}>
-      <Grid container spacing={3} >     
+      <Grid container spacing={5} >     
       <Grid item xs={12} md={4}>
           <Paper
             elevation={0}
@@ -32,31 +32,33 @@ const TopSales = ({ products, salesData }) => {
 
             <Typography variant="h5" gutterBottom 
             style={{
+              fontFamily:'poppins',
               fontWeight: 'bold', 
-              paddingBottom: '15%',
+              paddingBottom: '8%'
               }}>
             Popular Item
             </Typography>
 
             <Typography variant="h1" gutterBottom 
             style={{
+              fontFamily:'poppins',
               fontWeight: 'bolder',
               fontSize: '65px',
-              paddingBottom: '15%',
-              paddingTop: '10%'
+              paddingBottom: '8%'
               }}>
-            Hot Trending On This Week.
+            Top Selling Items
             </Typography>
 
             <Typography variant="body1" 
             style={{
-              paddingBottom: '15%',
-              paddingTop: '5%'
+              fontFamily:'poppins',
+              paddingBottom: '8%'
               }}>
-            Various kinds of products that are trending the trend will be reset every week. Don't miss out on the best of items every week.
+           Prepare for Halloween with our spooktacular costumes and accessories, ensuring a memorable holiday!
             </Typography>
 
             <button style={{
+              fontFamily:'poppins',
               padding: '10px',
               marginTop: '10px',
               backgroundColor: 'rgba(0, 0, 0, 0)', // Transparent sea green color
@@ -66,7 +68,6 @@ const TopSales = ({ products, salesData }) => {
               textAlign: 'left',
               fontWeight: 'bold',
               paddingLeft: 0,
-              paddingTop: '15%'
               }}>
               
               See All
@@ -88,13 +89,24 @@ const TopSales = ({ products, salesData }) => {
                   borderRadius: '10px'
                 }}
               >
-                <div style={{ height: '350px' }}>
-                  <img src={product.image} alt={product.name} style={{ width: '100%', height: '265px', objectFit: 'cover' }} />
-                  <Typography variant="h5" component="div" gutterBottom>
+                <div style={{ height: '325px' }}>
+                  <img src={product.image} alt={product.name} style={{ width: '100%', height: '250px', objectFit: 'cover' }} />
+                  <Typography variant="h5" component="div" gutterBottom style={{
+                    fontFamily:'poppins',
+                    textAlign: 'left',
+                    fontWeight: 'bold',
+                    fontSize: '16px',
+                  }}>
                     {product.name}
                   </Typography>
-                  <Typography variant="body1" component="div">
-                    Sales: {salesData[product.id]}
+
+                  <Typography variant="body1" component="div" style={{
+                    fontFamily:'poppins',
+                    textAlign: 'left',
+                    fontWeight: 'bold',
+                    fontSize: '16px',
+                  }}>
+                    ₱ {product.price}
                   </Typography>
                 </div>
                 </Paper>

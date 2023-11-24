@@ -18,8 +18,9 @@ const Footer = () => {
 
   return (
     <footer style={{ 
+        color: '#6D6D6D',
+        fontFamily:'poppins',
         fontSize: '16px',
-        fontWeight: 'bold',
         backgroundColor: 'white', 
         paddingTop: '5%',
         paddingBottom: '8%',

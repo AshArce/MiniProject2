@@ -1,5 +1,5 @@
 // ProductSettings.jsx
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import { sampleProducts } from '../../features/adminpage/productdata';
@@ -32,7 +32,6 @@ function ProductSettings() {
 
   return (
     <div>
-      <h2>Product Settings</h2>
       <div>
         <label htmlFor="category-select-first">Category:</label>
         <Select

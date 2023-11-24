@@ -18,7 +18,7 @@ export const routes = [
     element: <HeroPage />,
   },
   {
-    path: "/AllProducts",
+    path: "/products",
     element: <AllProducts />,
   },
   {
@@ -34,7 +34,7 @@ export const routes = [
     element: <ProductList />,
   },
   {
-    path: "/adminpage/Categories",
+    path: "/adminpage/categories",
     element: <Categories />,
   },
 ];

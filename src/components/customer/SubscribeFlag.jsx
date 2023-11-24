@@ -4,7 +4,7 @@ const SubscribeFlag = () => {
   return (
     <div style={{ maxWidth: '1440px', margin: 0 }}>
     <img
-      src="/images/subsc.png"
+      src="/images/flag.png"
       style={{width: '100vw', display: 'block' }}
     />
     <div style={{ 

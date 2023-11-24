@@ -1,6 +1,6 @@
 import { Grid, Typography } from '@mui/material'
 import React from 'react'
-import BCrumbs from './bcrumbs'
+import BCrumbs from './BCrumbs'
 import ProductSettings from './ProductSettings'
 
 function ProductsNav() {
@@ -8,9 +8,6 @@ function ProductsNav() {
     <div>
       <Grid container>
         <Grid item sm={6}>
-          <Typography>
-            All Products
-          </Typography>
           <BCrumbs />
         </Grid>
         <Grid item sm={6}>
