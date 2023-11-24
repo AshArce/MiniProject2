@@ -34,7 +34,6 @@ const ProductList = () => {
   const [newProductName, setNewProductName] = useState('');
 
 
-
   const handleSearchChange = (event) => {
     setSearchQuery(event.target.value);
   };

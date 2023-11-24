@@ -1,8 +1,10 @@
+
 // ProductsNav.jsx
 import React from 'react';
 import { Grid, Typography } from '@mui/material';
 import BCrumbs from './bcrumbs';
 import ProductSettings from './ProductSettings';
+
 
 function ProductsNav({
   selectedCategoryFirst,
@@ -14,7 +16,9 @@ function ProductsNav({
     <div>
       <Grid container>
         <Grid item sm={6}>
+
           <Typography>All Products</Typography>
+
           <BCrumbs />
         </Grid>
         <Grid item sm={6}>

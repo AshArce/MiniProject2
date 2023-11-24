@@ -1,6 +1,8 @@
 // Import necessary dependencies
 import Dashboard from "../features/adminpage/Dashboard";
-import HeroPage from "../components/customer/HeroPage";
+
+import HeroPage from "../features/customerpage/HeroPage";
+
 import Categories from "../components/admin/Categories";
 import ProductList from "../features/adminpage/ProductList";
 
@@ -16,7 +18,7 @@ export const routes = [
     element: <HeroPage />,
   },
   {
-    path: "/AllProducts",
+    path: "/products",
     element: <AllProducts />,
   },
   {
@@ -32,7 +34,7 @@ export const routes = [
     element: <ProductList />,
   },
   {
-    path: "/adminpage/Categories",
+    path: "/adminpage/categories",
     element: <Categories />,
   },
 ];

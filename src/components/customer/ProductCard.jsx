@@ -10,19 +10,12 @@ function ProductCard({ products, addToCart }) {
   return (
     <Grid container spacing={2} p={1}>
       {products.map((product) => (
-        <Grid
-          item
-          key={product.id}
-          xs={6}
-          sm={4}
-          md={3}
-          p={2}
-        >
+        <Grid item key={product.id} xs={6} sm={4} md={3} p={2}>
           <Paper
             sx={{
               padding: 2,
-              textAlign: 'center',
-              aspectRatio: '1/1',
+              textAlign: 'left',
+              aspectRatio: '1/1'
             }}
           >
             <img
@@ -35,6 +28,7 @@ function ProductCard({ products, addToCart }) {
                 filter: product.status === 'Out of Stock' ? 'grayscale(100%)' : 'none',
               }}
             />
+
             <Typography variant="subtitle1" mt={1}>
               {product.name}
             </Typography>
@@ -42,7 +36,9 @@ function ProductCard({ products, addToCart }) {
               {product.status === 'Out of Stock' ? 'Out of Stock' : `₱${product.price}`}
             </Typography>
             {product.status !== 'Out of Stock' && (
+
               <Button variant="contained" onClick={() => handleAddToCart(product)}>
+
                 Add to Cart
               </Button>
             )}

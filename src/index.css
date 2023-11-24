@@ -1,5 +1,65 @@
+@import "typeface-poppins";
+
+* {
+  background-color: F5F9EE;
+}
+
 body {
+  font-family: "Poppins", sans-serif;
   display: block;
   margin: 0;
   padding: 0;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+.product-settings {
+  position: relative; /* Relative position to contain absolute positioning */
+  margin-bottom: 8%;
+}
+
+.settings-container {
+  display: flex;
+  flex-direction: row;
+  margin-top: 10px;
+  padding: 3%;
+}
+
+.category-select {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input {
+  padding: 6px !important; /* Adjust the value as needed */
+}
+
+label[for="category-select-first"] {
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  margin-right: 8px; /* Adjust the spacing after the colon */
+  display: inline-block;
+}
+
+#category-select-first {
+  margin-left: 8px; /* Adjust the spacing between label and select field */
+}
+
+label[for="category-select-second"] {
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  margin-right: 8px; /* Adjust the spacing after the colon */
+  display: inline-block;
+}
+#category-select-second {
+  margin-left: 8px; /* Adjust the spacing between label and select field */
 }

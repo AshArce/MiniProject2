@@ -30,7 +30,6 @@ function ProductSettings({
 
   return (
     <div>
-      <h2>Product Settings</h2>
       <div>
         <label htmlFor="category-select-first">Category:</label>
         <Select
