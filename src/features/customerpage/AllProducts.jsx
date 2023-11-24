@@ -1,15 +1,15 @@
-// Inside AllProducts.jsx
-import React, { useState } from 'react';
+// AllProducts.jsx
+import React, { useState, useEffect } from 'react';
 import ProductCard from '../../components/customer/ProductCard';
 import ShoppingCart from '../../components/customer/ShopingCart';
 import { sampleProducts } from '../adminpage/productdata';
 import ProductsNav from '../../components/customer/ProductsNav';
 
-
-
-
 function AllProducts() {
   const [cart, setCart] = useState([]);
+  const [filteredProducts, setFilteredProducts] = useState(sampleProducts);
+  const [selectedCategoryFirst, setSelectedCategoryFirst] = useState('All Items');
+  const [selectedCategorySecond, setSelectedCategorySecond] = useState('');
 
   const addToCart = (product) => {
     const existingProduct = cart.find((item) => item.id === product.id);
@@ -26,15 +26,29 @@ function AllProducts() {
     }
   };
 
-
-
-
+  useEffect(() => {
+    // Update filtered products when category selections change
+    if (selectedCategoryFirst === 'All Items') {
+      setFilteredProducts(sampleProducts);
+    } else {
+      const filtered = sampleProducts.filter(product => product.category[0] === selectedCategoryFirst);
+      if (selectedCategorySecond) {
+        setFilteredProducts(filtered.filter(product => product.category[1] === selectedCategorySecond));
+      } else {
+        setFilteredProducts(filtered);
+      }
+    }
+  }, [selectedCategoryFirst, selectedCategorySecond]);
 
   return (
     <>
-      <ProductsNav />
-      <ProductCard products={sampleProducts} addToCart={addToCart} />
-
+      <ProductsNav
+        selectedCategoryFirst={selectedCategoryFirst}
+        selectedCategorySecond={selectedCategorySecond}
+        setSelectedCategoryFirst={setSelectedCategoryFirst}
+        setSelectedCategorySecond={setSelectedCategorySecond}
+      />
+      <ProductCard products={filteredProducts} addToCart={addToCart} />
     </>
   );
 }
