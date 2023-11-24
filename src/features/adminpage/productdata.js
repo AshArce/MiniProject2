@@ -3,24 +3,24 @@
 export const sampleProducts = [
   {
     id: 1,
-    name: "Kuya Wil 4s",
+    name: "Nike Blazer Mids",
     category: ["Shoes", "Sneakers"],
     status: "In-stock",
     date: "2023-11-08",
-    image: "images/shoes/product-image-1.jpg",
+    image: "images/product-image-1.jpg",
     price: "1200.00",
-    salesData: "50", 
+    salesData: "50",
     cart: true,
   },
   {
     id: 2,
-    name: "Vic Sotto Box Logo",
+    name: "Supreme Box Logo",
     category: ["Tops", "T-Shirt"],
     status: "In-stock",
     date: "2023-11-09",
     image: "images/shoes/product-image-1.jpg",
     price: "2900.00",
-    salesData: "35", 
+    salesData: "35",
 
     cart: true,
   },
@@ -30,9 +30,9 @@ export const sampleProducts = [
     category: ["Tops", "Crop Top"],
     status: "Out of Stock",
     date: "2023-11-09",
-    image: "images/shoes/product-image-1.jpg",
+    image: "images/product-image-1.jpg",
     price: "650.00",
-    salesData: "50", 
+    salesData: "50",
     cart: true,
   },
   {
@@ -43,7 +43,7 @@ export const sampleProducts = [
     date: "2023-11-09",
     image: "images/shoes/product-image-1.jpg",
     price: "999.25",
-    salesData: "78", 
+    salesData: "78",
     cart: false,
   },
   {
@@ -54,7 +54,7 @@ export const sampleProducts = [
     date: "2023-11-09",
     image: "images/shoes/product-image-1.jpg",
     price: "205.36",
-    salesData: "10", 
+    salesData: "10",
     cart: true,
   },
   {
@@ -65,7 +65,7 @@ export const sampleProducts = [
     date: "2023-11-09",
     image: "images/shoes/product-image-1.jpg",
     price: "205.36",
-    salesData: "20", 
+    salesData: "20",
     cart: true,
   },
   {
@@ -76,7 +76,7 @@ export const sampleProducts = [
     date: "2023-11-09",
     image: "images/shoes/product-image-1.jpg",
     price: "205.36",
-    salesData: "90", 
+    salesData: "90",
     cart: true,
   },
   {
@@ -87,7 +87,7 @@ export const sampleProducts = [
     date: "2023-11-09",
     image: "images/shoes/product-image-1.jpg",
     price: "205.36",
-    salesData: "110", 
+    salesData: "110",
     cart: true,
   },
   {
@@ -98,7 +98,7 @@ export const sampleProducts = [
     date: "2023-11-09",
     image: "images/shoes/product-image-1.jpg",
     price: "205.36",
-    salesData: "60", 
+    salesData: "60",
     cart: true,
   },
   {
@@ -109,7 +109,7 @@ export const sampleProducts = [
     date: "2023-11-09",
     image: "images/shoes/product-image-1.jpg",
     price: "205.36",
-    salesData: "80", 
+    salesData: "80",
     cart: true,
   },
   {
@@ -118,9 +118,9 @@ export const sampleProducts = [
     category: ["Tops", "T-Shirt"],
     status: "In-stock",
     date: "2023-11-09",
-    image: "images/shoes/product-image-1.jpg",
+    image: "images/shoes/PoloShirt.jpg",
     price: "205.36",
-    salesData: "5", 
+    salesData: "5",
     cart: true,
   },
   {
@@ -129,10 +129,9 @@ export const sampleProducts = [
     category: ["Shoes", "Boots"],
     status: "In-stock",
     date: "2023-11-09",
-    image: "images/shoes/product-image-1.jpg",
+    image: "images/shoes/BrownBoots.jpg",
     price: "205.36",
-    salesData: "150", 
+    salesData: "150",
     cart: true,
   },
-
 ];
