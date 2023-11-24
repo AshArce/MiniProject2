@@ -1,11 +1,9 @@
 // Import necessary dependencies
 import Dashboard from "../features/adminpage/Dashboard";
-
 import HeroPage from "../features/customerpage/HeroPage";
-
 import Categories from "../components/admin/Categories";
 import ProductList from "../features/adminpage/ProductList";
-
+import EditProduct from "../components/admin/EditProduct";
 import AllProducts from "../features/customerpage/AllProducts";
 
 import Login from "../components/customer/Login";
@@ -38,6 +36,10 @@ export const routes = [
   {
     path: "/adminpage/productlist",
     element: <ProductList />,
+  },
+  {
+    path: "/admin/edit",
+    element: <EditProduct/>
   },
   {
     path: "/adminpage/categories",

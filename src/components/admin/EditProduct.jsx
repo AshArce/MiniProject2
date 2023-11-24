@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom'; // Import Link from React Router
-import AdminNavigations from './AdminNavigations';
+import { Link } from 'react-router-dom'; 
 import { styled } from '@mui/system';
 import { useParams } from 'react-router-dom';
 import TextField from '@mui/material/TextField';
@@ -104,7 +103,6 @@ function EditProduct() {
 
   return (
     <StyledContainer>
-      <AdminNavigations />
       <ContainerWrapper>
         <LeftContainer>
           {/* Image upload section */}
