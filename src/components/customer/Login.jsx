@@ -10,6 +10,7 @@ import {
   Checkbox,
   Link,
 } from '@mui/material';
+import { Link as RouterLink } from 'react-router-dom';
 import Header from './Header';
 
 function Login() {
@@ -38,9 +39,11 @@ function Login() {
     setPassword(e.target.value);
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // handle form submission
+  const handleSubmit = () => {
+    // Handle form submission
+
+    // Redirect to '../features/adminpage/Dashboard'
+    window.location.href = '../features/adminpage/Dashboard';
   };
 
   return (
@@ -91,6 +94,7 @@ function Login() {
             style={btnstyle}
             onClick={handleSubmit}
             fullWidth
+            href='../adminpage/Dashboard'
           >
             Sign in
           </Button>

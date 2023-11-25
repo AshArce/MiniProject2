@@ -45,56 +45,57 @@ const ProductList = () => {
 
   return (
     <Container>
-      <Sidebar/>
+      <Sidebar />
 
       <div className="content">
         <Grid container spacing={2}>
 
-        <Grid item xs={12} md={6}>
-        <Paper elevation={0} sx={{ 
-          mt: '15px',
-          background: 'rgba(0, 0, 0, 0)',
-          p: 2, 
-          maxHeight: '90px',
-          display: 'flex',
-          alignItems: 'center',
-           }}>
-          <Typography variant="body1" sx={{ fontSize: '20px', marginBottom: 2, fontFamily:'poppins', fontWeight: 'bold', color: '#24527a' }}>
-            Product List
-          </Typography>
-         
-        </Paper>
-      </Grid>
+          <Grid item xs={12} md={6}>
+            <Paper elevation={0} sx={{
+              mt: '15px',
+              background: 'rgba(0, 0, 0, 0)',
+              p: 2,
+              maxHeight: '90px',
+              display: 'flex',
+              alignItems: 'center',
+            }}>
+              <Typography variant="body1" sx={{ fontSize: '20px', marginBottom: 2, fontFamily: 'poppins', fontWeight: 'bold', color: '#24527a' }}>
+                Product List
+              </Typography>
 
-      <Grid item xs={12} md={6}>
-        <Paper elevation={0} sx={{ 
-          background: 'rgba(0, 0, 0, 0)',
-          mt: '15px',
-          p: 2, 
-          maxHeight: '90px',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'flex-end',
-           }}>
-           <Button variant="contained"
-           sx={{
-            textTransform: 'capitalize',
-            background: '#24527a'
-           }}>
-              Add New Product
-            </Button>
-        </Paper>
-      </Grid>
+            </Paper>
+          </Grid>
+
+          <Grid item xs={12} md={6}>
+            <Paper elevation={0} sx={{
+              background: 'rgba(0, 0, 0, 0)',
+              mt: '15px',
+              p: 2,
+              maxHeight: '90px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'flex-end',
+            }}>
+              <Button variant="contained"
+                sx={{
+                  textTransform: 'capitalize',
+                  background: '#24527a'
+                }}>
+                Add New Product
+              </Button>
+            </Paper>
+          </Grid>
 
           <Grid item xs={12} md={12}>
-            <Paper elevation={0} 
-            sx={{ 
-              p: 1, 
-              mb: 2, 
-              maxHeight: '600px', 
-              overflowY: 'auto' }}>
-                <style>
-                  {`
+            <Paper elevation={0}
+              sx={{
+                p: 1,
+                mb: 2,
+                maxHeight: '600px',
+                overflowY: 'auto'
+              }}>
+              <style>
+                {`
                     /* Make the scrollbar transparent */
                     ::-webkit-scrollbar {
                       width: 10px;
@@ -108,17 +109,17 @@ const ProductList = () => {
                       background-color: transparent;
                     }
                   `}
-                </style>
-              <Table sx={{fontFamily: 'poppins'}}>
+              </style>
+              <Table sx={{ fontFamily: 'poppins' }}>
                 <TableHead>
-                  <TableRow sx={{fontWeight: 'bold'}}>
-                    <TableCell sx={{fontWeight: 'bold'}}>Image</TableCell>
-                    <TableCell sx={{fontWeight: 'bold'}}>Product Name</TableCell>
-                    <TableCell sx={{fontWeight: 'bold'}}>Category</TableCell>
-                    <TableCell sx={{fontWeight: 'bold'}}>Status</TableCell>
-                    <TableCell sx={{fontWeight: 'bold'}}>Stocks</TableCell>
-                    <TableCell sx={{fontWeight: 'bold'}}>Date</TableCell>
-                    <TableCell sx={{fontWeight: 'bold'}}>Actions</TableCell>
+                  <TableRow sx={{ fontWeight: 'bold' }}>
+                    <TableCell sx={{ fontWeight: 'bold' }}>Image</TableCell>
+                    <TableCell sx={{ fontWeight: 'bold' }}>Product Name</TableCell>
+                    <TableCell sx={{ fontWeight: 'bold' }}>Category</TableCell>
+                    <TableCell sx={{ fontWeight: 'bold' }}>Status</TableCell>
+                    <TableCell sx={{ fontWeight: 'bold' }}>Stocks</TableCell>
+                    <TableCell sx={{ fontWeight: 'bold' }}>Date</TableCell>
+                    <TableCell sx={{ fontWeight: 'bold' }}>Actions</TableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>
@@ -142,21 +143,21 @@ const ProductList = () => {
                           style={{
                             color: product.status === 'Out of Stock' ? 'red' : 'inherit',
                           }}
-                          >
+                        >
                           {product.status}
                         </span>
                       </TableCell>
                       <TableCell>
                         <span
-                        style={{
-                          color: product.stocks === '0' ? 'red' : 'inherit',
-                        }}>
-                        {product.stocks}
+                          style={{
+                            color: product.stocks === '0' ? 'red' : 'inherit',
+                          }}>
+                          {product.stocks}
                         </span>
-                        </TableCell>
+                      </TableCell>
                       <TableCell>{product.date}</TableCell>
                       <TableCell>
-                        <Link to={`../.././admin/edit/${product.id}`}>
+                        <Link to={`../../components/admin/editproduct/${product.id}`}>
                           <IconButton aria-label="Edit">
                             <EditIcon />
                           </IconButton>

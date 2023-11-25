@@ -39,7 +39,7 @@ export const routes = [
   },
   {
     path: "/admin/edit",
-    element: <EditProduct/>
+    element: <EditProduct />,
   },
   {
     path: "/adminpage/categories",
