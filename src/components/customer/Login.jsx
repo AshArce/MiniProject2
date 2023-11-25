@@ -38,10 +38,13 @@ function Login() {
     setPassword(e.target.value);
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // handle form submission
+  const handleSubmit = () => {
+    // Handle form submission
+
+    // Redirect to '../features/adminpage/Dashboard'
+    window.location.href = '../features/adminpage/Dashboard';
   };
+
 
   return (
     <>
@@ -84,13 +87,14 @@ function Login() {
             control={<Checkbox name="checkedB" color="primary" />}
             label="Remember me"
           />
-          <Button
+           <Button
             type="submit"
             color="primary"
             variant="contained"
             style={btnstyle}
             onClick={handleSubmit}
             fullWidth
+            href='../adminpage/Dashboard'
           >
             Sign in
           </Button>
