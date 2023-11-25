@@ -71,16 +71,7 @@ function Sidebar(props) {
             <ListItemText primary={"Categories"} />
           </ListItemButton>
         </ListItem>
-
-        <ListItem disablePadding>
-          <ListItemButton component={Link} to={'/adminpage/categories'}>
-          <ListItemIcon>
-            <AccountCircleIcon sx={{ color: 'white' }} />
-          </ListItemIcon>
-            <ListItemText primary={"Account"} />
-          </ListItemButton>
-        </ListItem>
-      </List>
+        </List>
       <Divider />
       
 
@@ -93,9 +84,7 @@ function Sidebar(props) {
             <ListItemText primary={"Logout"} />
           </ListItemButton>
         </ListItem>
-      </List>
-
-      
+      </List>  
     </div>
   );
 
