@@ -241,7 +241,7 @@ const Dashboard = () => {
               maxHeight: '800px',
               overflowX: 'auto' 
               }}>
-        <Typography variant="body1" sx={{ fontSize: titleFontSize, marginBottom: 2 }}>Top Products</Typography>
+        <Typography variant="body1" sx={{ fontSize: titleFontSize, marginBottom: 2 }}>Sales Graph</Typography>
         <SalesGraph product={sampleProducts} />
       </Paper>
           </Grid>

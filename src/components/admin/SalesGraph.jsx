@@ -44,7 +44,7 @@ const SalesGraph = ({ product }) => {
         labels: months,
         datasets: [
           {
-            label: 'Total SalesData Each Month',
+            label: 'Total Sales Data Each Month',
             data: salesData,
             backgroundColor: '#24527a',
             borderColor: '#24527a',
