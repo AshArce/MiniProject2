@@ -17,8 +17,6 @@ function ProductsNav({
       <Grid container>
         <Grid item sm={6}>
 
-          <Typography>All Products</Typography>
-
           <BCrumbs
             selectedCategoryFirst={selectedCategoryFirst} selectedCategorySecond={selectedCategorySecond} />
         </Grid>

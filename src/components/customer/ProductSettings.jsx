@@ -40,41 +40,44 @@ function ProductSettings({
   };
 
   return (
+    <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly' }}>
+  <div>
+    <label htmlFor="category-select-first">Category:</label>
+    <Select
+      id="category-select-first"
+      value={selectedCategoryFirst}
+      onChange={handleCategoryFirstChange}
+      style={{ width: '130px', borderRadius: '20px' }}
+    >
+      <MenuItem value="">All Items</MenuItem>
+      {categories.map(category => (
+        <MenuItem key={category} value={category}>
+          {category}
+        </MenuItem>
+      ))}
+    </Select>
+  </div>
+  
+  {selectedCategoryFirst !== '' && (
     <div>
-      <h2>Product Settings</h2>
-      <div>
-        <label htmlFor="category-select-first">Category:</label>
-        <Select
-          id="category-select-first"
-          value={selectedCategoryFirst}
-          onChange={handleCategoryFirstChange}
-        >
-          <MenuItem value="">All Items</MenuItem>
-          {categories.map(category => (
-            <MenuItem key={category} value={category}>
-              {category}
-            </MenuItem>
-          ))}
-        </Select>
-      </div>
-      {selectedCategoryFirst !== '' && (
-        <div>
-          <label htmlFor="category-select-second">SubCategory:</label>
-          <Select
-            id="category-select-second"
-            value={selectedCategorySecond}
-            onChange={handleCategorySecondChange}
-          >
-            <MenuItem value="">All Items</MenuItem>
-            {subCategories.map(subCategory => (
-              <MenuItem key={subCategory} value={subCategory}>
-                {subCategory}
-              </MenuItem>
-            ))}
-          </Select>
-        </div>
-      )}
+      <label htmlFor="category-select-second">SubCategory:</label>
+      <Select
+        id="category-select-second"
+        value={selectedCategorySecond}
+        onChange={handleCategorySecondChange}
+        style={{ width: '130px', borderRadius: '20px' }}
+      >
+        <MenuItem value="">All Items</MenuItem>
+        {subCategories.map(subCategory => (
+          <MenuItem key={subCategory} value={subCategory}>
+            {subCategory}
+          </MenuItem>
+        ))}
+      </Select>
     </div>
+  )}
+</div>
+
   );
 }
 
