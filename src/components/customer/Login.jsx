@@ -16,8 +16,8 @@ function Login() {
   const paperStyle = {
     padding: 50,
     height: 'auto',
-    width: '40vw',
-    borderRadius: '50px',
+    width: '30vw',
+    borderRadius: '30px',
     backgroundColor: '#ceded5',
     position: 'absolute',
     top: '50%',
@@ -26,7 +26,7 @@ function Login() {
     boxShadow: 24,
     p: 4,
   };
-  const btnstyle = { margin: '20px auto', backgroundColor: '#39A848' };
+  const btnstyle = { margin: '20px auto', backgroundColor: '#24527A' };
   const [email, setEmail] = React.useState('');
   const [password, setPassword] = React.useState('');
 
