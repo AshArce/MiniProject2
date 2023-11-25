@@ -5,7 +5,7 @@ import ProductCard from '../../components/customer/ProductCard';
 
 import { sampleProducts } from '../adminpage/productdata';
 import ProductsNav from '../../components/customer/ProductsNav';
-import CartModal from '../../components/customer/CartModal';
+import Header from '../../components/customer/Header';
 
 
 function AllProducts() {
@@ -14,18 +14,7 @@ function AllProducts() {
   const [selectedCategoryFirst, setSelectedCategoryFirst] = useState('');
   const [selectedCategorySecond, setSelectedCategorySecond] = useState('');
 
-  // State to manage the visibility of the shopping cart modal
-  const [isCartModalOpen, setCartModalOpen] = useState(false);
 
-  // Function to open the shopping cart modal
-  const openCartModal = () => {
-    setCartModalOpen(true);
-  };
-
-  // Function to close the shopping cart modal
-  const closeCartModal = () => {
-    setCartModalOpen(false);
-  };
 
   const addToCart = (product) => {
     const existingProduct = cart.find((item) => item.id === product.id);
@@ -68,6 +57,7 @@ function AllProducts() {
 
   return (
     <>
+      <Header />
       <ProductsNav
         selectedCategoryFirst={selectedCategoryFirst}
         selectedCategorySecond={selectedCategorySecond}
@@ -75,19 +65,9 @@ function AllProducts() {
         setSelectedCategorySecond={setSelectedCategorySecond}
       />
       <ProductCard products={filteredProducts} addToCart={addToCart} />
-      {/* Button to open the shopping cart modal */}
-      <Button variant="contained" color="primary" onClick={openCartModal}>
-        Open Shopping Cart
-      </Button>
 
-      {/* Shopping Cart Modal */}
-      <CartModal
-        isOpen={isCartModalOpen}
-        onClose={closeCartModal}
-        cart={cart}
-        removeFromCart={removeFromCart}
-        updateQuantity={updateQuantity}
-      />
+
+
     </>
   );
 }
