@@ -1,6 +1,8 @@
 // Inside ProductCard.jsx
 import React from 'react';
 import { Button, Grid, Paper, Typography } from '@mui/material';
+import { sampleProducts } from '../../features/adminpage/productdata';
+
 
 function ProductCard({ products, addToCart }) {
   const handleAddToCart = (product) => {
@@ -9,7 +11,7 @@ function ProductCard({ products, addToCart }) {
 
   return (
     <Grid container spacing={2} p={1}>
-      {products.map((product) => (
+      {sampleProducts.map((product) => (
         <Grid
           item
           key={product.id}

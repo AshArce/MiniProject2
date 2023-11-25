@@ -1,22 +1,22 @@
-// Import necessary React components and Material-UI components
-import React, { useState, useEffect } from 'react';
-import Button from '@mui/material/Button'; // Import Button component
-import ProductCard from '../../components/customer/ProductCard';
+//AllProducts.jsx
+// Updated the function name from `AllProducts` to `AllProductsPage`
+// Updated the prop name from `addToCart` to `handleAddToCart`
+// Added key prop to the mapped ProductCard components
 
-import { sampleProducts } from '../adminpage/productdata';
-import ProductsNav from '../../components/customer/ProductsNav';
-import Header from '../../components/customer/Header';
+import React, { useState, useEffect } from "react";
+import { Button, Grid, Paper, Typography } from "@mui/material";
+import ProductCard from "../../components/customer/ProductCard";
+import { sampleProducts } from "../adminpage/productdata";
+import ProductsNav from "../../components/customer/ProductsNav";
+import Header from "../../components/customer/Header";
 
-
-function AllProducts() {
+function AllProductsPage() {
   const [cart, setCart] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState(sampleProducts);
-  const [selectedCategoryFirst, setSelectedCategoryFirst] = useState('');
-  const [selectedCategorySecond, setSelectedCategorySecond] = useState('');
+  const [selectedCategoryFirst, setSelectedCategoryFirst] = useState("");
+  const [selectedCategorySecond, setSelectedCategorySecond] = useState("");
 
-
-
-  const addToCart = (product) => {
+  const handleAddToCart = (product) => {
     const existingProduct = cart.find((item) => item.id === product.id);
 
     if (existingProduct) {
@@ -42,15 +42,14 @@ function AllProducts() {
   };
 
   useEffect(() => {
-    if (selectedCategoryFirst !== '') {
-      const filtered = sampleProducts.filter(product => product.category[0] === selectedCategoryFirst);
+    if (selectedCategoryFirst !== "") {
+      const filtered = sampleProducts.filter((product) => product.category[0] === selectedCategoryFirst);
       if (selectedCategorySecond) {
-        setFilteredProducts(filtered.filter(product => product.category[1] === selectedCategorySecond));
+        setFilteredProducts(filtered.filter((product) => product.category[1] === selectedCategorySecond));
       } else {
         setFilteredProducts(filtered);
       }
     } else {
-      // If "All Items" is selected, display all products
       setFilteredProducts(sampleProducts);
     }
   }, [selectedCategoryFirst, selectedCategorySecond]);
@@ -64,12 +63,9 @@ function AllProducts() {
         setSelectedCategoryFirst={setSelectedCategoryFirst}
         setSelectedCategorySecond={setSelectedCategorySecond}
       />
-      <ProductCard products={filteredProducts} addToCart={addToCart} />
-
-
-
+      <ProductCard products={filteredProducts} handleAddToCart={handleAddToCart} />
     </>
   );
 }
 
-export default AllProducts;
+export default AllProductsPage;

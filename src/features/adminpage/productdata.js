@@ -1,8 +1,6 @@
 // productsData.js
 
-
- const sampleProducts = [
-
+const sampleProducts = [
   {
     id: 1,
     name: "Nike Blazer Mids",
@@ -150,15 +148,14 @@
   },
 ];
 
-
 const formatCurrency = (amount) => {
-  return new Intl.NumberFormat('en-PH', {
-    style: 'currency',
-    currency: 'PHP',
+  return new Intl.NumberFormat("en-PH", {
+    style: "currency",
+    currency: "PHP",
   }).format(amount);
 };
 
-sampleProducts.forEach(product => {
+sampleProducts.forEach((product) => {
   // Convert price and salesData to numbers with additional checks
   product.price = parseFloat(product.price) || 0;
   product.salesData = parseFloat(product.salesData) || 0;
@@ -168,7 +165,7 @@ sampleProducts.forEach(product => {
 });
 
 // Log the totalSales for each product
-sampleProducts.forEach(product => {
+sampleProducts.forEach((product) => {
   console.log(`Total sales for product ${product.id}: ${product.totalSales}`);
 });
 
@@ -181,7 +178,6 @@ const calculateOverallTotalSales = (products) => {
 const overallTotalSales = calculateOverallTotalSales(sampleProducts); // Corrected line
 console.log(`Overall Total Sales: ${overallTotalSales}`);
 //------------------REVENUE------------------//
-
 
 //------------------ORDERS-------------------//
 const productOrders = (product) => {
@@ -199,7 +195,6 @@ const overallOrders = calculateOverallOrders(sampleProducts);
 console.log(`Overall Total Orders: ${overallOrders}`);
 //------------------ORDERS-------------------//
 
-
 //------------------SOLD-------------------//
 const soldProducts = (products) => {
   return products.reduce((acc, product) => {
@@ -211,4 +206,9 @@ const overallSoldProducts = soldProducts(sampleProducts);
 console.log(`Products Sold: ${overallSoldProducts}`);
 //------------------SOLD-------------------//
 
-export { sampleProducts, calculateOverallTotalSales, calculateOverallOrders, soldProducts, };
+export {
+  sampleProducts,
+  calculateOverallTotalSales,
+  calculateOverallOrders,
+  soldProducts,
+};
